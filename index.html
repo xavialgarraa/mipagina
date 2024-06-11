@@ -11,9 +11,9 @@
         <h1>Xavi Algarra</h1>
         <nav>
             <ul>
-                <li><a href="#about">Sobre mí</a></li>
-                <li><a href="#events">Eventos</a></li>
-                <li><a href="#gallery">Galería</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="directos.html">Directos</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -22,12 +22,26 @@
         <h2>Sobre mí</h2>
         <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
     </section>
-    <section id="events">
-        <h2>Eventos</h2>
-        <p>Próximos eventos:</p>
-        <ul>
-            <li>Evento 1 - Fecha y detalles</li>
-            <li>Evento 2 - Fecha y detalles</li>
-        </ul>
-        <h3>Directo</h3>
-        <iframe id="youtube-frame" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></
+    <section id="gallery">
+        <h2>Galería</h2>
+        <p>Fotos y videos de eventos pasados</p>
+    </section>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través de este formulario.</p>
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
