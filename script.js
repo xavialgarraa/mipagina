@@ -2,10 +2,12 @@
 function loadYouTubeVideo() {
     var link = document.getElementById("youtube-link").value;
     var iframe = document.getElementById("youtube-frame");
-    var videoId = link.split("v=")[1];
-    var ampersandPosition = videoId.indexOf("&");
-    if (ampersandPosition !== -1) {
-        videoId = videoId.substring(0, ampersandPosition);
+    var videoId = link.split("/live/")[1];
+    if (videoId) {
+        var queryStringPosition = videoId.indexOf("?");
+        if (queryStringPosition !== -1) {
+            videoId = videoId.substring(0, queryStringPosition);
+        }
+        iframe.src = "https://www.youtube.com/embed/" + videoId;
     }
-    iframe.src = "https://www.youtube.com/embed/" + videoId;
 }
