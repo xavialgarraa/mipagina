@@ -3,41 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xavi Algarra - Eventos Deportivos</title>
+    <title>Torneos - Xavi Algarra</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Xavi Algarra</h1>
+        <h1>Torneos</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="directos.html">Directos</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>Sobre mí</h2>
-        <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
+    <section id="events">
+        <h2>Próximos Torneos</h2>
+        <ul>
+            <li>
+                <h3>Torneo de Billar en Red Rock Bar</h3>
+                <p>Fecha: 25 de Junio de 2024</p>
+                <p>Ubicación: Av. Vila de Tossa, 51, 17310 Lloret de Mar, Girona</p>
+                <button onclick="showRegistrationForm()">Inscribirse</button>
+                <div id="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3120.8915303803943!2d2.8439380151048483!3d41.7010337792379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab59ae6b2a1%3A0x504b5c9c0c8d2b2c!2sAv.%20Vila%20de%20Tossa%2C%2051%2C%2017310%20Lloret%20de%20Mar%2C%20Girona!5e0!3m2!1ses!2ses!4v1677691100783!5m2!1ses!2ses"
+                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </li>
+        </ul>
     </section>
-    <section id="gallery">
-        <h2>Galería</h2>
-        <p>Fotos y videos de eventos pasados</p>
-    </section>
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de este formulario.</p>
-        <form>
+    <section id="registration" style="display: none;">
+        <h2>Inscripción al Torneo de Billar</h2>
+        <form id="registration-form">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Correo electrónico:</label>
             <input type="email" id="email" name="email" required>
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" required></textarea>
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" required>
             <button type="submit">Enviar</button>
         </form>
+    </section>
+    <section id="statistics" style="display: none;">
+        <h2>Estadísticas del Torneo</h2>
+        <ul id="participants-list">
+            <!-- Participantes se añadirán aquí -->
+        </ul>
     </section>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
