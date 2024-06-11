@@ -84,7 +84,7 @@ footer {
 }
 
 #map-container {
-    width: 100%;
+    width: 50%;
     height: 300px; /* Reducido el tamaño del mapa */
     margin-top: 20px;
     border-radius: 8px;
