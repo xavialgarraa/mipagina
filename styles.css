@@ -32,7 +32,7 @@ section {
     margin: 20px;
 }
 
-#about, #events, #gallery, #contact {
+#about, #events, #gallery, #contact, #live {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 8px;
