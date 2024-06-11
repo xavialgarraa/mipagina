@@ -40,4 +40,3 @@ function loadYouTubeVideo() {
         iframe.src = "https://www.youtube.com/embed/" + videoId;
     }
 }
-
