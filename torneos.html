@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneos - Xavi Algarra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Torneos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="directos.html">Directos</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="events">
+        <h2>Próximos Torneos</h2>
+        <ul>
+            <li>
+                <h3>Torneo de Billar en Red Rock Bar</h3>
+                <p>Fecha: 25 de Junio de 2024</p>
+                <p>Ubicación: Red Rock Bar</p>
+                <button onclick="showRegistrationForm()">Inscribirse</button>
+            </li>
+        </ul>
+    </section>
+    <section id="registration" style="display: none;">
+        <h2>Inscripción al Torneo de Billar</h2>
+        <form id="registration-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <section id="statistics" style="display: none;">
+        <h2>Estadísticas del Torneo</h2>
+        <ul id="participants-list">
+            <!-- Participantes se añadirán aquí -->
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
