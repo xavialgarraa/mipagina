@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo de Billar en Red Rock Bar - Inscripción</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Algarra Streams</div>
+        <!-- HTML para el interruptor de tema -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="directos.html">Directos</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="side-nav" id="side-nav">
+        <div class="menu-toggle-close" id="menu-toggle-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="torneos.html">Torneos</a></li>
+            <li><a href="directos.html">Directos</a></li>
+            <li><a href="index.html#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="registration">
+            <h2>Inscripción al Torneo de Billar en Red Rock Bar</h2>
+            <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfDv1GI5Ylrf0hlYkdyplB-w6IJvVkUonPsqCzClFsAzO1Vjw/formResponse" method="POST" target="_self">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="entry.2005620554" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="entry.1045781291" required>
+                <label for="age">Edad:</label>
+                <input type="number" id="age" name="entry.1166974658" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Mostrar/ocultar menú lateral
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        document.getElementById('menu-toggle-close').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        // Función para cambiar entre modos oscuro y claro
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>

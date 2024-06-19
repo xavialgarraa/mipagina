@@ -12,6 +12,8 @@
     --button-hover-background: #483d8b;
     --footer-background: #1f1f1f;
     --list-background: #333;
+    --title-event:#c0ddff; 
+
 }
 
 body {
@@ -179,19 +181,72 @@ input, textarea, button {
     background-color: var(--form-background);
     color: var(--text-color);
 }
-
 button {
     background-color: var(--button-background);
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em; /* Reducción del tamaño del texto */
+    padding: 8px 16px; /* Ajuste de espaciado interno más compacto */
+    border-radius: 4px; /* Bordes redondeados */
     transition: background-color 0.3s ease;
+    margin-right: 10px; /* Espacio entre botones */
+    margin-bottom: 10px; /* Espacio entre filas de botones */
 }
 
 button:hover {
     background-color: var(--button-hover-background);
 }
+
+/* Estilos para los botones */
+.button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre botones */
+    justify-content: flex-start; /* Alineación de botones a la izquierda */
+    margin-top: 10px; /* Espacio superior */
+}
+
+.button-container button {
+    background-color: var(--button-background);
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 20px; /* Ajuste de espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center; /* Alinea ícono y texto verticalmente */
+}
+
+.button-container button i {
+    margin-right: 8px; /* Espacio entre ícono y texto */
+}
+
+.button-container button:hover {
+    background-color: var(--button-hover-background);
+}
+
+/* Estilos para el formulario de Google y el mapa */
+#google-form-container,
+#map-container {
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilos adicionales para mejorar el diseño general */
+.event-info {
+    margin-bottom: 20px; /* Espacio inferior del contenedor de evento */
+}
+
+
+/* Clearfix para evitar que los botones floten */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
 
 footer {
     text-align: center;
@@ -234,9 +289,10 @@ body.light-mode {
     --button-hover-background: #555;
     --footer-background: #e7e7e7;
     --list-background: #e4e4e4;
+    --title-event:#303336; 
 }
 
-/* Estilos para el interruptor de tema */
+/*Estilos para el interruptor de tema*/
 .theme-switch-wrapper {
     margin-left: auto; /* Mantener margen izquierdo automático */
     margin-top: 4px; /* Ajustar el margen superior según sea necesario */
@@ -340,63 +396,88 @@ input:checked + .slider:before {
 
 
 /* Estilos para la sección de eventos */
-#events {
-    background-color: var(--section-background);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+/* Estilos para la sección de eventos */
 
-#events h2 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-}
-
+/* Añade este CSS a tu archivo styles.css */
+/* Estilos para el sidebar del evento */
+/* Estilos para el contenedor del evento */
 .event {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--list-background);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio inferior entre eventos */
+}
+
+/* Estilos para la información principal del evento */
+.event-info {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 10px; /* Espaciado interno */
+    background-color: var(--section-background); /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 .event-info h3 {
-    margin-bottom: 10px;
-    color: var(--accent-color);
+    margin-top: 0; /* Elimina el margen superior del título */
+    margin-bottom: 10px; /* Espacio inferior del título */
 }
 
 .event-info p {
-    margin-bottom: 5px;
-    color: var(--text-color);
+    margin-bottom: 8px; /* Espacio inferior entre párrafos */
 }
 
-.event-info button {
-    background-color: var(--button-background);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 8px 15px;
-    margin-right: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+/* Estilos para la barra lateral del evento */
+.event-sidebar {
+    flex-basis: 300px; /* Ancho fijo del sidebar */
+    padding: 10px; /* Espaciado interno */
+    background-color: #ffffff; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-.event-info button:hover {
-    background-color: var(--button-hover-background);
+/* Estilo para el hipervínculo modificado */
+.event-info h3 a {
+    color: var(--title-event); /* Color azul para el hipervínculo */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave del color */
 }
+
+.event-info h3 a:hover {
+    color: #1e87d3; /* Color más oscuro al pasar el mouse */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Ajustes adicionales de diseño según sea necesario */
 
 .carousel {
-    display: flex;
-    overflow-x: auto;
+    position: relative;
+    flex: 1;
+    text-align: center;
 }
 
-.carousel img {
-    height: 200px;
-    margin-right: 10px;
+.carousel-image {
+    max-width: 100%;
+    max-height: 300px;
+    display: none;
 }
 
-/* Añadir más estilos según sea necesario */
+.carousel-image:first-child {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 0;
+}
+
+.carousel-control.next {
+    right: 0;
+}
