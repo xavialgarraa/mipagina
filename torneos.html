@@ -8,8 +8,24 @@
 </head>
 <body>
     <header>
-        <h1>Torneos</h1>
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Algarra Streams</div>
+        <!-- HTML para el interruptor de tema -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
@@ -18,43 +34,62 @@
             </ul>
         </nav>
     </header>
-    <section id="events">
-        <h2>Próximos Torneos</h2>
+    <nav class="side-nav" id="side-nav">
         <ul>
-            <li>
-                <h3>Torneo de Billar en Red Rock Bar</h3>
-                <p>Fecha: 25 de Junio de 2024</p>
-                <p>Ubicación: Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
-                <button onclick="showRegistrationForm()">Inscribirse</button>
-                <div id="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.8383787335264!2d2.8444822151316514!3d41.70496587923406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab81b8c1b71%3A0xf40a43721f8f7e35!2sAv.%20Vila%20de%20Tossa%2C%2070%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2ses!4v1689164788291!5m2!1sen!2ses"
-                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="torneos.html">Torneos</a></li>
+            <li><a href="directos.html">Directos</a></li>
+            <li><a href="index.html#contact">Contacto</a></li>
         </ul>
-    </section>
-    <section id="registration" style="display: none;">
-        <h2>Inscripción al Torneo de Billar</h2>
-        <form id="registration-form">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="age">Edad:</label>
-            <input type="number" id="age" name="age" required>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-    <section id="statistics" style="display: none;">
-        <h2>Estadísticas del Torneo</h2>
-        <ul id="participants-list">
-            <!-- Participantes se añadirán aquí -->
-        </ul>
-    </section>
+    </nav>
+    <main>
+        <section id="events">
+            <h2>Próximos Torneos</h2>
+            <ul>
+                <li>
+                    <h3>Torneo de Billar en Red Rock Bar</h3>
+                    <p>Fecha: 25 de Junio de 2024</p>
+                    <p>Ubicación: Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
+                    <button onclick="showGoogleForm()">Inscribirse</button>
+                    <div id="google-form-container" style="display: none;">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDv1GI5Ylrf0hlYkdyplB-w6IJvVkUonPsqCzClFsAzO1Vjw/viewform?embedded=true"
+                                width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                    </div>
+                    <div id="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.8383787335264!2d2.8444822151316514!3d41.70496587923406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab81b8c1b71%3A0xf40a43721f8f7e35!2sAv.%20Vila%20de%20Tossa%2C%2070%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2ses!4v1689164788291!5m2!1sen!2ses"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="registration" style="display: none;">
+            <h2>Inscripción al Torneo de Billar</h2>
+            <form id="registration-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="age">Edad:</label>
+                <input type="number" id="age" name="age" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section id="statistics" style="display: none;">
+            <h2>Estadísticas del Torneo</h2>
+            <ul id="participants-list">
+                <!-- Participantes se añadirán aquí -->
+            </ul>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        function showGoogleForm() {
+            var formContainer = document.getElementById('google-form-container');
+            formContainer.style.display = 'block';
+        }
+    </script>
 </body>
 </html>

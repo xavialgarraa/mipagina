@@ -40,3 +40,53 @@ function loadYouTubeVideo() {
         iframe.src = "https://www.youtube.com/embed/" + videoId;
     }
 }
+
+// script.js
+
+function showRegistrationForm() {
+    document.getElementById('registration').style.display = 'block';
+    window.location.hash = '#registration';
+}
+
+
+// Script para manejar el envío del formulario de inscripción
+document.getElementById('registration-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Formulario enviado');
+    // Aquí puedes agregar la lógica para enviar el formulario a tu servidor
+});
+
+// Menú desplegable lateral
+const menuToggle = document.getElementById('menu-toggle');
+const sideNav = document.getElementById('side-nav');
+
+menuToggle.addEventListener('click', () => {
+    sideNav.classList.toggle('show');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitch = document.querySelector('#checkbox');
+
+    themeSwitch.addEventListener('change', function(event) {
+        if (event.target.checked) {
+            document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.remove('light-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Verifica el tema guardado en localStorage al cargar la página
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeSwitch.checked = true;
+    }
+});
+
+menuToggle.addEventListener('click', () => {
+    sideNav.classList.toggle('show');
+});
+
+   
