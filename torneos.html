@@ -35,6 +35,11 @@
         </nav>
     </header>
     <nav class="side-nav" id="side-nav">
+        <div class="menu-toggle-close" id="menu-toggle-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="torneos.html">Torneos</a></li>
@@ -50,18 +55,21 @@
                     <h3>Torneo de Billar en Red Rock Bar</h3>
                     <p>Fecha: 25 de Junio de 2024</p>
                     <p>Ubicación: Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
-                    <button onclick="showGoogleForm()">Inscribirse</button>
+                    <button onclick="toggleGoogleForm()">Inscribirse</button>
+                    <button onclick="toggleMap()">Cómo llegar</button>
                     <div id="google-form-container" style="display: none;">
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDv1GI5Ylrf0hlYkdyplB-w6IJvVkUonPsqCzClFsAzO1Vjw/viewform?embedded=true"
                                 width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
                     </div>
-                    <div id="map-container">
+                    <div id="map-container" style="display: none;">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.8383787335264!2d2.8444822151316514!3d41.70496587923406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab81b8c1b71%3A0xf40a43721f8f7e35!2sAv.%20Vila%20de%20Tossa%2C%2070%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2ses!4v1689164788291!5m2!1sen!2ses"
                                 width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </li>
+                <!-- Agregar más torneos aquí -->
             </ul>
         </section>
+        
         <section id="registration" style="display: none;">
             <h2>Inscripción al Torneo de Billar</h2>
             <form id="registration-form">
@@ -86,10 +94,44 @@
     </footer>
     <script src="script.js"></script>
     <script>
-        function showGoogleForm() {
+        // Función para mostrar/ocultar el formulario de Google
+        function toggleGoogleForm() {
             var formContainer = document.getElementById('google-form-container');
-            formContainer.style.display = 'block';
+            if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+                formContainer.style.display = 'block';
+            } else {
+                formContainer.style.display = 'none';
+            }
         }
+
+        // Función para mostrar/ocultar el mapa
+        function toggleMap() {
+            var mapContainer = document.getElementById('map-container');
+            if (mapContainer.style.display === 'none' || mapContainer.style.display === '') {
+                mapContainer.style.display = 'block';
+            } else {
+                mapContainer.style.display = 'none';
+            }
+        }
+
+        // Mostrar/ocultar menú lateral
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        document.getElementById('menu-toggle-close').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
     </script>
 </body>
 </html>

@@ -56,13 +56,7 @@ document.getElementById('registration-form').addEventListener('submit', function
     // Aquí puedes agregar la lógica para enviar el formulario a tu servidor
 });
 
-// Menú desplegable lateral
-const menuToggle = document.getElementById('menu-toggle');
-const sideNav = document.getElementById('side-nav');
 
-menuToggle.addEventListener('click', () => {
-    sideNav.classList.toggle('show');
-});
 
 document.addEventListener('DOMContentLoaded', function() {
     const themeSwitch = document.querySelector('#checkbox');
@@ -90,3 +84,4 @@ menuToggle.addEventListener('click', () => {
 });
 
    
+
