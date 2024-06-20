@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneo de Billar en Red Rock Bar - Inscripción</title>
+    <title>Información del Torneo de Billar en Red Rock Bar</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="torneo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
     <header>
@@ -47,26 +51,56 @@
             <li><a href="index.html#contact">Contacto</a></li>
         </ul>
     </nav>
+
+    <nav class="section-nav">
+        <a href="torneos.html" onclick="history.back();">&#8592; </a>
+        <a href="#general-info" class="active" onclick="showSection('general-info')">Info General</a>
+        <a href="#tournament-bracket" onclick="showSection('tournament-bracket')">Cuadro del Torneo</a>
+        <a href="#organization-location" onclick="showSection('organization-location')">Organización y Lugar</a>
+        <a href="#prizes-registration" onclick="showSection('prizes-registration')">Premios/Inscripción</a>
+    </nav>
+
     <main>
-        <section id="registration">
-            <h2>Inscripción al Torneo de Billar en Red Rock Bar</h2>
-            <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfDv1GI5Ylrf0hlYkdyplB-w6IJvVkUonPsqCzClFsAzO1Vjw/formResponse" method="POST" target="_self">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="entry.2005620554" required>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="entry.1045781291" required>
-                <label for="age">Edad:</label>
-                <input type="number" id="age" name="entry.1166974658" required>
-                <button type="submit">Enviar</button>
-            </form>
+        <section id="general-info" class="active">
+            <h2>Info General</h2>
+            <a href="torneos.html" class="back-to-tournaments" title="Volver a Torneos"><i class="fas fa-arrow-left"></i></a>
+            <p>El Torneo de Billar en Red Rock Bar se celebrará el 25 de Junio de 2024 en la Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona. Este evento reúne a los mejores jugadores de billar de la región para competir en un entorno emocionante y profesional.</p>
         </section>
+
+        <section id="tournament-bracket">
+            <h2>Cuadro del Torneo</h2>
+            <p>A continuación se muestra el cuadro del torneo con los emparejamientos y resultados de cada ronda:</p>
+            <img src="images/tournament-bracket.png" alt="Cuadro del Torneo">
+        </section>
+
+        <section id="organization-location">
+            <h2>Organización y Lugar</h2>
+            <p>El torneo está organizado por Xavi Algarra Streams en colaboración con el Red Rock Bar. El Red Rock Bar está ubicado en una de las zonas más vibrantes de Lloret de Mar, ofreciendo un ambiente perfecto para disfrutar del billar y la competición.</p>
+            <p><strong>Dirección:</strong> Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
+            <div id="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.8383787335264!2d2.8444822151316514!3d41.70496587923406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab81b8c1b71%3A0xf40a43721f8f7e35!2sAv.%20Vila%20de%20Tossa%2C%2070%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2ses!4v1689164788291!5m2!1sen!2ses"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section id="prizes-registration">
+            <h2>Premios/Inscripción</h2>
+            <p>Los premios para los ganadores del torneo son los siguientes:</p>
+            <ul>
+                <li><strong>Primer Lugar:</strong> €500 y un trofeo</li>
+                <li><strong>Segundo Lugar:</strong> €300 y una medalla</li>
+                <li><strong>Tercer Lugar:</strong> €100 y una medalla</li>
+            </ul>
+            <p>La inscripción al torneo tiene un costo de €20. Para inscribirte, por favor, completa el formulario de inscripción en la <a href="inscripcion.html">página de inscripción</a>.</p>
+        </section>
+
+        <button onclick="window.location.href='torneos.html'" style="margin-top: 20px;">Volver a Torneos</button>
     </main>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
-    <script src="script.js"></script>
     <script>
-        // Mostrar/ocultar menú lateral
+        // Función para mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');
             if (sideNav.classList.contains('show')) {
@@ -95,6 +129,31 @@
             } else {
                 body.classList.remove('light-mode');
             }
+        });
+
+        // Función para mostrar la sección correspondiente y actualizar la barra de navegación
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+
+            // Actualizar la barra de navegación
+            const navLinks = document.querySelectorAll('.section-nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.section-nav a[href="#${sectionId}"]`).classList.add('active');
+        }
+
+        // Mostrar la primera sección por defecto
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('general-info');
         });
     </script>
 </body>

@@ -1,0 +1,83 @@
+/* Modo Oscuro */
+:root {
+    --background-color: #1f1f1f;
+    --text-color: #ddd;
+    --accent-color: #6a5acd;
+    --hover-color: #483d8b;
+    --section-background: #2f2f2f;
+    --form-background: #333;
+    --button-background: #6a5acd;
+    --button-hover-background: #483d8b;
+    --footer-background: #1f1f1f;
+    --list-background: #333;
+    --title-event:#c0ddff; 
+
+}
+
+/* Modo Claro */
+body.light-mode {
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --accent-color: #6a5acd;
+    --hover-color: #efefef;
+    --section-background: #ededed;
+    --form-background: #fff;
+    --button-background: #6a5acd;
+    --button-hover-background: #555;
+    --footer-background: #e7e7e7;
+    --list-background: #e4e4e4;
+    --title-event:#303336; 
+}
+
+/* CSS para la barra de navegación de secciones */
+.section-nav {
+    background-color: var(--background-color);
+    overflow: hidden;
+    position: relative; /* Necesario para el z-index */
+    z-index: 1; /* Asegura que la barra esté en el frente */
+}
+
+.section-nav a {
+    float: left;
+    display: block;
+    color: var(--text-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.section-nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.section-nav a.active {
+    background-color: var(--button-background);
+    color: white;
+}
+
+.section-nav .back-to-tournaments {
+    float: right;
+}
+
+.section-nav .back-to-tournaments i {
+    color: var(--text-color); /* Color de la flecha */
+    font-size: 1.5em; /* Tamaño de la flecha */
+    position: relative; /* Necesario para el z-index */
+    z-index: 2; /* Asegura que la flecha esté en el frente */
+}
+
+.section-nav .back-to-tournaments:hover i {
+    color: var(--title-event); /* Color de la flecha al pasar el cursor por encima */
+}
+
+/* Estilos para las secciones */
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+

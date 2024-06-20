@@ -54,9 +54,10 @@
             <h2>Próximos Torneos</h2>
             <div class="event">
                 <div class="event-info">
-                    <h3><a href="torneo1.html">Torneo de Billar en Red Rock Bar</a></h3>
+                    <h3>Torneo de Billar en Red Rock Bar </h3>
                     <p>Fecha: 25 de Junio de 2024</p>
                     <p>Ubicación: Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
+                    <a href="torneo1.html" class="info-link">[+info/estadísticas...]</a>
                     <div class="button-container clearfix">
                         <button onclick="toggleGoogleForm()"><i class="fas fa-pencil-alt"></i> Inscribirse</button>
                         <button onclick="toggleMap()"><i class="fas fa-map-marker-alt"></i> Cómo llegar</button>
@@ -110,14 +111,6 @@
             }
         }
 
-        // Función para desplazar la página al inicio del elemento
-        function scrollToElement(element) {
-            window.scrollTo({
-                top: element.offsetTop - 100, // Ajuste fino de la posición de desplazamiento
-                behavior: 'smooth' // Desplazamiento suave
-            });
-        }
-
         // Mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');
@@ -148,7 +141,14 @@
                 body.classList.remove('light-mode');
             }
         });
-       
+
+        // Función para desplazar la página al inicio del elemento
+        function scrollToElement(element) {
+            window.scrollTo({
+                top: element.offsetTop - 100, // Ajuste fino de la posición de desplazamiento
+                behavior: 'smooth' // Desplazamiento suave
+            });
+        }
     </script>
 </body>
 </html>
