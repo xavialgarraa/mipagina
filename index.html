@@ -5,43 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xavi Algarra - Eventos Deportivos</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al CSS de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <h1>Xavi Algarra</h1>
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Algarra Streams</div>
+        <!-- HTML para el interruptor de tema -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="directos.html">Directos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>Sobre mí</h2>
-        <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
-    </section>
-    <section id="gallery">
-        <h2>Galería</h2>
-        <p>Fotos y videos de eventos pasados</p>
-    </section>
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de este formulario.</p>
-        <form>
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+    <nav class="side-nav" id="side-nav">
+        <div class="menu-toggle-close" id="menu-toggle-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="torneos.html">Torneos</a></li>
+            <li><a href="directos.html">Directos</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
+        </section>
+        <section id="gallery">
+            <h2>Galería</h2>
+            <p>Fotos y videos de eventos pasados</p>
+        </section>
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de este formulario.</p>
+            <form>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Mostrar/ocultar menú lateral
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        document.getElementById('menu-toggle-close').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        // Función para cambiar entre modos oscuro y claro
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+        
+        // Aplicar el modo guardado en localStorage al cargar la página
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.classList.add(theme);
+                checkbox.checked = theme === 'light-mode';
+            }
+        };
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            }
+        });
+    </script>
 </body>
 </html>

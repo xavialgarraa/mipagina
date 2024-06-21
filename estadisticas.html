@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Ligas - Xavi Algarra</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al CSS de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Algarra Streams</div>
+        <!-- HTML para el interruptor de tema -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="directos.html">Directos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+                <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="side-nav" id="side-nav">
+        <div class="menu-toggle-close" id="menu-toggle-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="torneos.html">Torneos</a></li>
+            <li><a href="directos.html">Directos</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+            <li><a href="index.html#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="statistics-details">
+            <h2>Estadísticas Detalladas de la Liga Segona Catalana</h2>
+            <table id="tabla-clasificacion">
+                <thead>
+                    <tr>
+                        <th class="posicion">#</th>
+                        <th class="equipo">Equipo</th>
+                        <th>PJ</th>
+                        <th>PG</th>
+                        <th>PE</th>
+                        <th>PP</th>
+                        <th>GF</th>
+                        <th>GC</th>
+                        <th>Dif.</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla">
+                    <!-- Aquí se generarán las filas dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Mostrar/ocultar menú lateral
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        document.getElementById('menu-toggle-close').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        // Función para cambiar entre modos oscuro y claro
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+        // Aplicar el modo guardado en localStorage al cargar la página
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.classList.add(theme);
+                checkbox.checked = theme === 'light-mode';
+            }
+        };
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            }
+        });
+
+        // Datos de ejemplo para la liga Segona Catalana
+        let equipos = [
+            { posicion: 1, nombre: 'Equipo A', pj: 10, pg: 7, pe: 2, pp: 1, gf: 20, gc: 5, puntos: 23, escudo: 'https://via.placeholder.com/30' },
+            { posicion: 2, nombre: 'Equipo B', pj: 10, pg: 6, pe: 3, pp: 1, gf: 18, gc: 6, puntos: 21, escudo: 'https://via.placeholder.com/30' },
+            { posicion: 3, nombre: 'Equipo C', pj: 10, pg: 5, pe: 4, pp: 1, gf: 15, gc: 7, puntos: 19, escudo: 'https://via.placeholder.com/30' },
+            { posicion: 4, nombre: 'Equipo D', pj: 10, pg: 5, pe: 3, pp: 2, gf: 14, gc: 9, puntos: 18, escudo: 'https://via.placeholder.com/30' },
+            { posicion: 5, nombre: 'Equipo E', pj: 10, pg: 4, pe: 4, pp: 2, gf: 12, gc: 8, puntos: 16, escudo: 'https://via.placeholder.com/30' },
+            // Agrega más equipos según sea necesario
+        ];
+
+        // Función para calcular la diferencia de goles
+        function calcularDiferenciaGoles(equipo) {
+            return equipo.gf - equipo.gc;
+        }
+
+        // Función para crear las filas de la tabla
+        function crearFilasTabla() {
+            const cuerpoTabla = document.getElementById('cuerpo-tabla');
+
+            // Limpiamos el cuerpo de la tabla por si tenía contenido previo
+            cuerpoTabla.innerHTML = '';
+
+            // Ordenamos los equipos por puntos y luego por diferencia de goles en caso de empate en puntos
+            equipos.sort((a, b) => {
+                if (a.puntos !== b.puntos) {
+                    return b.puntos - a.puntos; // Orden descendente por puntos
+                } else {
+                    return calcularDiferenciaGoles(b) - calcularDiferenciaGoles(a); // Orden descendente por diferencia de goles
+                }
+            });
+
+            // Iteramos sobre el array de equipos y creamos una fila por cada uno
+            equipos.forEach((equipo, index) => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td class="posicion">${index + 1}</td>
+                    <td class="equipo"><img src="${equipo.escudo}" alt="${equipo.nombre}" class="escudo">${equipo.nombre}</td>
+                    <td>${equipo.pj}</td>
+                    <td>${equipo.pg}</td>
+                    <td>${equipo.pe}</td>
+                    <td>${equipo.pp}</td>
+                    <td>${equipo.gf}</td>
+                    <td>${equipo.gc}</td>
+                    <td>${calcularDiferenciaGoles(equipo)}</td>
+                    <td>${equipo.puntos}</td>
+                `;
+                if (index === 0) {
+                    fila.classList.add('asciende'); // Añadir clase para el equipo que asciende (primer lugar)
+                } else if (index === equipos.length - 1) {
+                    fila.classList.add('desciende'); // Añadir clase para el equipo que desciende (último lugar)
+                }
+                cuerpoTabla.appendChild(fila);
+            });
+        }
+
+        // Llamamos a la función para que se ejecute al cargar la página
+        crearFilasTabla();
+
+        // Ejemplo de actualización dinámica (simulada) de puntos
+        setInterval(() => {
+            // Simulación de actualización de puntos (puedes reemplazar esta lógica con datos reales o de una API)
+            equipos.forEach(equipo => {
+                equipo.puntos += Math.floor(Math.random() * 3); // Incremento aleatorio de puntos
+                equipo.pg += Math.floor(Math.random() * 2); // Incremento aleatorio de partidos ganados
+                equipo.pe += Math.floor(Math.random() * 2); // Incremento aleatorio de partidos empatados
+                equipo.pp += Math.floor(Math.random() * 2); // Incremento aleatorio de partidos perdidos
+                equipo.gf += Math.floor(Math.random() * 4); // Incremento aleatorio de goles a favor
+                equipo.gc += Math.floor(Math.random() * 4); // Incremento aleatorio de goles en contra
+            });
+
+            // Volvemos a crear y ordenar la tabla con los nuevos datos
+            crearFilasTabla();
+        }, 5000); // Cada 5 segundos (para propósitos de demostración)
+    </script>
+</body>
+</html>

@@ -5,28 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Directos - Xavi Algarra</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al CSS de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <h1>Directos</h1>
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">Algarra Streams</div>
+        <!-- HTML para el interruptor de tema -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="directos.html">Directos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
                 <li><a href="index.html#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <section id="live">
-        <h2>Transmisiones en Directo</h2>
-        <iframe id="youtube-frame" width="560" height="315" src="https://www.youtube.com/embed/ncX2mqA7_tI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <input type="text" id="youtube-link" placeholder="Introduce el enlace de YouTube" value="https://www.youtube.com/live/ncX2mqA7_tI?si=C7NVeqetcute5Crp">
-        <button onclick="loadYouTubeVideo()">Cargar Video</button>
-    </section>
+    <nav class="side-nav" id="side-nav">
+        <div class="menu-toggle-close" id="menu-toggle-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="torneos.html">Torneos</a></li>
+            <li><a href="directos.html">Directos</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+            <li><a href="index.html#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="live">
+            <h2>Transmisiones en Directo</h2>
+            <iframe id="youtube-frame" width="560" height="315" src="https://www.youtube.com/embed/ncX2mqA7_tI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <input type="text" id="youtube-link" placeholder="Introduce el enlace de YouTube" value="https://www.youtube.com/live/ncX2mqA7_tI?si=C7NVeqetcute5Crp">
+            <button onclick="loadYouTubeVideo()">Cargar Video</button>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Mostrar/ocultar menú lateral
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        document.getElementById('menu-toggle-close').addEventListener('click', function() {
+            var sideNav = document.getElementById('side-nav');
+            if (sideNav.classList.contains('show')) {
+                sideNav.classList.remove('show');
+            } else {
+                sideNav.classList.add('show');
+            }
+        });
+
+        // Función para cambiar entre modos oscuro y claro
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+
+        // Aplicar el modo guardado en localStorage al cargar la página
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.classList.add(theme);
+                checkbox.checked = theme === 'light-mode';
+            }
+        };
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            }
+        });
+
+        // Función para cargar el video de YouTube ingresado
+        function loadYouTubeVideo() {
+            var link = document.getElementById('youtube-link').value;
+            var videoId = link.split('v=')[1];
+            var ampersandPosition = videoId.indexOf('&');
+            if (ampersandPosition != -1) {
+                videoId = videoId.substring(0, ampersandPosition);
+            }
+            document.getElementById('youtube-frame').src = "https://www.youtube.com/embed/" + videoId;
+        }
+    </script>
 </body>
 </html>

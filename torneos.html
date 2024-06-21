@@ -32,6 +32,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="directos.html">Directos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
                 <li><a href="index.html#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -46,6 +47,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="torneos.html">Torneos</a></li>
             <li><a href="directos.html">Directos</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
             <li><a href="index.html#contact">Contacto</a></li>
         </ul>
     </nav>
@@ -133,15 +135,25 @@
         // Función para cambiar entre modos oscuro y claro
         const checkbox = document.getElementById('checkbox');
         const body = document.body;
+        // Aplicar el modo guardado en localStorage al cargar la página
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.classList.add(theme);
+                checkbox.checked = theme === 'light-mode';
+            }
+        };
 
         checkbox.addEventListener('change', function() {
             if (checkbox.checked) {
                 body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
             } else {
                 body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
             }
         });
-
+        
         // Función para desplazar la página al inicio del elemento
         function scrollToElement(element) {
             window.scrollTo({
