@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="torneo1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 </head>
-<body>
+<body class="dark-mode">
     <header>
         <div class="menu-toggle" id="menu-toggle">
             <span></span>
@@ -18,7 +16,6 @@
             <span></span>
         </div>
         <div class="logo">Algarra Streams</div>
-        <!-- HTML para el interruptor de tema -->
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" />
@@ -28,13 +25,12 @@
                 </div>
             </label>
         </div>
-
         <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="directos.html">Directos</a></li>
-                <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+                <li><a href="estadisticas.html">Estadísticas</a></li>
                 <li><a href="index.html#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -49,7 +45,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="torneos.html">Torneos</a></li>
             <li><a href="directos.html">Directos</a></li>
-            <li><a href="estadisticas.html">Estadísticas</a></li> <!-- Nuevo enlace -->
+            <li><a href="estadisticas.html">Estadísticas</a></li>
             <li><a href="index.html#contact">Contacto</a></li>
         </ul>
     </nav>
@@ -58,23 +54,50 @@
         <a href="torneos.html" onclick="history.back();">&#8592; </a>
         <a href="#general-info" class="active" onclick="showSection('general-info')">Info General</a>
         <a href="#tournament-bracket" onclick="showSection('tournament-bracket')">Cuadro del Torneo</a>
+        <a href="#matches" onclick="showSection('matches')">Partidos</a>
         <a href="#organization-location" onclick="showSection('organization-location')">Organización y Lugar</a>
         <a href="#prizes-registration" onclick="showSection('prizes-registration')">Premios/Inscripción</a>
     </nav>
 
     <main>
         <section id="general-info" class="active">
-            <h2>Info General</h2>
-            <a href="torneos.html" class="back-to-tournaments" title="Volver a Torneos"><i class="fas fa-arrow-left"></i></a>
-            <p>El Torneo de Billar en Red Rock Bar se celebrará el 25 de Junio de 2024 en la Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona. Este evento reúne a los mejores jugadores de billar de la región para competir en un entorno emocionante y profesional.</p>
+            <h2>Información General</h2>
+            <p>El Torneo de Billar en Red Rock Bar se celebrará los días 13 y 20 de julio de 2024 en la Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona. Este evento reúne a los mejores jugadores de billar de la región para competir en un entorno emocionante y profesional.</p>
+            <p>El torneo contará con 32 participantes y se llevará a cabo en dos fases:</p>
+            <ul>
+                <li><strong>Primera fase (16avos de final):</strong> Sábado, 13 de julio de 2024.</li>
+                <li><strong>Fase final:</strong> Sábado, 20 de julio de 2024.</li>
+            </ul>
+            <p>El horario de los partidos es el siguiente:</p>
+            <ul>
+                <li>13 de julio (16avos de final):</li>
+                <ul>
+                    <li>19:00 - 5/6 partidos</li>
+                    <li>20:00 - 5/6 partidos</li>
+                    <li>21:00 - 5/6 partidos</li>
+                    <li>22:00 - 1-2 partidos (si es necesario)</li>
+                </ul>
+                <li>20 de julio (Fase final):</li>
+                <ul>
+                    <li>19:00 - 8 partidos (8vos de final)</li>
+                    <li>20:30 - 4 partidos (4tos de final)</li>
+                    <li>21:30 - Semifinales</li>
+                    <li>22:30 - Final (al mejor de 3 partidos)</li>
+                </ul>
+            </ul>
         </section>
-
         <section id="tournament-bracket">
             <h2>Cuadro del Torneo</h2>
-            <p>A continuación se muestra el cuadro del torneo con los emparejamientos y resultados de cada ronda:</p>
-            <img src="images/tournament-bracket.png" alt="Cuadro del Torneo">
+            <div class="bracket" id="bracket">
+                <!-- Aquí se generará dinámicamente el cuadro del torneo -->
+            </div>
         </section>
-
+        <section id="matches">
+            <h2>Partidos</h2>
+            <div id="matches-list">
+                <!-- Aquí se generarán dinámicamente los partidos -->
+            </div>
+        </section>
         <section id="organization-location">
             <h2>Organización y Lugar</h2>
             <p>El torneo está organizado por Xavi Algarra Streams en colaboración con el Red Rock Bar. El Red Rock Bar está ubicado en una de las zonas más vibrantes de Lloret de Mar, ofreciendo un ambiente perfecto para disfrutar del billar y la competición.</p>
@@ -84,25 +107,23 @@
                     width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
-
         <section id="prizes-registration">
             <h2>Premios/Inscripción</h2>
             <p>Los premios para los ganadores del torneo son los siguientes:</p>
             <ul>
-                <li><strong>Primer Lugar:</strong> €500 y un trofeo</li>
-                <li><strong>Segundo Lugar:</strong> €300 y una medalla</li>
-                <li><strong>Tercer Lugar:</strong> €100 y una medalla</li>
+                <li><strong>Primer Lugar:</strong> €50</li>
+                <li><strong>Segundo Lugar:</strong> €25</li>
             </ul>
-            <p>La inscripción al torneo tiene un costo de €20. Para inscribirte, por favor, completa el formulario de inscripción en la <a href="https://forms.gle/xb6jtPf3ukTpdnzs5">página de inscripción</a>.</p>
+            <p>La inscripción al torneo tiene un costo de €10. Para inscribirte, por favor, completa el formulario de inscripción en la <a href="https://forms.gle/xb6jtPf3ukTpdnzs5">página de inscripción</a>.</p>
         </section>
-
         <button onclick="window.location.href='torneos.html'" style="margin-top: 20px;">Volver a Torneos</button>
     </main>
     <footer>
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
+    <script src="torneo1.js"></script>
     <script>
-        // Función para mostrar/ocultar menú lateral
+        // Mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');
             if (sideNav.classList.contains('show')) {
@@ -124,34 +145,6 @@
         // Función para cambiar entre modos oscuro y claro
         const checkbox = document.getElementById('checkbox');
         const body = document.body;
-
-        checkbox.addEventListener('change', function() {
-            if (checkbox.checked) {
-                body.classList.add('light-mode');
-            } else {
-                body.classList.remove('light-mode');
-            }
-        });
-
-        // Función para mostrar la sección correspondiente y actualizar la barra de navegación
-        function showSection(sectionId) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Mostrar la sección seleccionada
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-
-            // Actualizar la barra de navegación
-            const navLinks = document.querySelectorAll('.section-nav a');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector(`.section-nav a[href="#${sectionId}"]`).classList.add('active');
-        }
         // Aplicar el modo guardado en localStorage al cargar la página
         window.onload = function() {
             const theme = localStorage.getItem('theme');
@@ -170,10 +163,70 @@
                 localStorage.setItem('theme', 'dark-mode');
             }
         });
-        // Mostrar la primera sección por defecto
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('general-info');
+
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('main section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            var activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+
+            var navLinks = document.querySelectorAll('.section-nav a');
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            var activeLink = document.querySelector('.section-nav a[href="#' + sectionId + '"]');
+            activeLink.classList.add('active');
+        }
+        function generateBracket() {
+    const rounds = 5; // 32avos, 16avos, 8avos, 4tos, semifinal, final
+    const matchesPerRound = [32, 16, 8, 4, 2, 1];
+    const bracketContainer = document.getElementById('bracket');
+
+    for (let round = 0; round < rounds; round++) {
+        const roundDiv = document.createElement('div');
+        roundDiv.classList.add('round');
+
+        for (let match = 0; match < matchesPerRound[round]; match++) {
+            const matchDiv = document.createElement('div');
+            matchDiv.classList.add('match');
+            matchDiv.innerHTML = `<span>Partido ${match + 1}</span><span class="match-info">Info</span>`;
+            roundDiv.appendChild(matchDiv);
+        }
+
+        bracketContainer.appendChild(roundDiv);
+    }
+}
+
+function generateMatchesList() {
+    const matches = [];
+    for (let i = 1; i <= 32; i += 2) {
+        matches.push({
+            player1: `Jugador ${i}`,
+            player2: `Jugador ${i + 1}`,
+            time: '19:00',
+            date: '13 de julio'
         });
+    }
+
+    const matchesListContainer = document.getElementById('matches-list');
+
+    matches.forEach(function(match) {
+        const matchItem = document.createElement('div');
+        matchItem.classList.add('match-item');
+        matchItem.innerHTML = `<span>${match.player1} vs ${match.player2}</span><span>${match.date} a las ${match.time}</span>`;
+        matchesListContainer.appendChild(matchItem);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    generateBracket();
+    generateMatchesList();
+});
+
     </script>
 </body>
 </html>

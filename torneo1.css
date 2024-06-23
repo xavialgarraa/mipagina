@@ -32,9 +32,10 @@ body.light-mode {
 /* CSS para la barra de navegación de secciones */
 .section-nav {
     background-color: var(--background-color);
-    overflow: hidden;
-    position: relative; /* Necesario para el z-index */
-    z-index: 1; /* Asegura que la barra esté en el frente */
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 0;
+    margin: 0px 0;
 }
 
 .section-nav a {
@@ -81,3 +82,99 @@ section.active {
 }
 
 
+
+/* Estilos para el cuadro del torneo */
+.bracket {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+
+.match {
+    background-color: var(--list-background);
+    padding: 10px;
+    margin: 10px 0;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    color: var(--text-color);
+}
+
+.match-info {
+    font-size: 0.8em;
+    color: var(--text-color);
+}
+
+.match::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.match:first-child::before {
+    top: 50%;
+}
+
+.round:first-child .match::before {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .bracket {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .round {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .match {
+        width: 100px;
+    }
+}
+
+/* Estilos para la lista de partidos */
+#matches-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#matches-list .match-item {
+    background-color: var(--list-background);
+    border: 1px solid var(--text-color);
+    margin: 10px;
+    padding: 10px;
+    width: calc(33% - 20px);
+    border-radius: 5px;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+#matches-list .match-item span {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    #matches-list .match-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    #matches-list .match-item {
+        width: calc(100% - 20px);
+    }
+}

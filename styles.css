@@ -416,7 +416,7 @@ input:checked + .slider:before {
     padding: 10px; /* Espaciado interno */
     background-color: var(--section-background); /* Color de fondo */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra ligera */
 }
 
 .event-info h3 {
