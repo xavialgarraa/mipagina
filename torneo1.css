@@ -10,9 +10,17 @@
     --button-hover-background: #483d8b;
     --footer-background: #1f1f1f;
     --list-background: #333;
-    --title-event:#c0ddff; 
-
+    --title-event: #c0ddff;
 }
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 
 /* Modo Claro */
 body.light-mode {
@@ -26,7 +34,7 @@ body.light-mode {
     --button-hover-background: #555;
     --footer-background: #e7e7e7;
     --list-background: #e4e4e4;
-    --title-event:#303336; 
+    --title-event: #303336;
 }
 
 /* CSS para la barra de navegación de secciones */
@@ -34,8 +42,8 @@ body.light-mode {
     background-color: var(--background-color);
     display: flex;
     justify-content: space-around;
-    padding: 0px 0;
-    margin: 0px 0;
+    padding: 0;
+    margin: 0;
 }
 
 .section-nav a {
@@ -81,17 +89,25 @@ section.active {
     display: block;
 }
 
-
-
-/* Estilos para el cuadro del torneo */
 .bracket {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
     flex-wrap: wrap;
-    margin: 20px 0;
+    justify-content: center;
+    align-items: flex-start;
 }
 
+#bracket .round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.round-header {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-color);
+}
 
 .match {
     background-color: var(--list-background);
@@ -119,12 +135,26 @@ section.active {
     background-color: var(--text-color);
 }
 
-.match:first-child::before {
-    top: 50%;
-}
-
 .round:first-child .match::before {
     display: none;
+}
+
+.connector {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.connector.vertical {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -142,6 +172,10 @@ section.active {
     .match {
         width: 100px;
     }
+
+    .connector {
+        display: none;
+    }
 }
 
 /* Estilos para la lista de partidos */
@@ -156,7 +190,7 @@ section.active {
     border: 1px solid var(--text-color);
     margin: 10px;
     padding: 10px;
-    width: calc(33% - 20px);
+    width: 90%;
     border-radius: 5px;
     color: var(--text-color);
     display: flex;
@@ -178,3 +212,54 @@ section.active {
         width: calc(100% - 20px);
     }
 }
+
+/* Estilos para la barra de navegación de secciones en dispositivos móviles */
+@media (max-width: 768px) {
+    .section-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section-nav a {
+        width: 100%; /* Ocupar todo el ancho disponible */
+        padding: 12px 0; /* Reducir el padding vertical para más espacio */
+    }
+
+    .section-nav a.active {
+        background-color: var(--button-background);
+        color: white;
+    }
+
+    .section-nav .back-to-tournaments {
+        float: none;
+        margin-top: 10px; /* Espacio adicional arriba para el botón Volver a Torneos */
+    }
+
+    .section-nav .back-to-tournaments i {
+        font-size: 1.2em; /* Tamaño ligeramente reducido para dispositivos móviles */
+    }
+}
+
+
+/* Estilos específicos para cada tipo de ronda */
+.round.of-32 {
+    margin-top: 0; /* Asegura que la primera ronda comience desde el borde superior */
+}
+
+.round.of-16 {
+    margin-top: 60px; /* Ajusta la posición de la ronda de 16avos */
+}
+
+.round.quarter-finals {
+    margin-top: 120px; /* Ajusta la posición de los cuartos de final */
+}
+
+.round.semi-finals {
+    margin-top: 180px; /* Ajusta la posición de las semifinales */
+}
+
+.round.final {
+    margin-top: 240px; /* Ajusta la posición de la final */
+}
+
+
