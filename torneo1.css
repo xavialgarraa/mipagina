@@ -161,12 +161,14 @@ section.active {
     .bracket {
         flex-direction: column;
         align-items: center;
+        overflow-x: auto;
     }
 
     .round {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        overflow-x: auto;
     }
 
     .match {
@@ -203,13 +205,13 @@ section.active {
 
 @media (max-width: 768px) {
     #matches-list .match-item {
-        width: calc(50% - 20px);
+        width: 90%;
     }
 }
 
 @media (max-width: 480px) {
     #matches-list .match-item {
-        width: calc(100% - 20px);
+        width: 90%;
     }
 }
 
@@ -241,25 +243,27 @@ section.active {
 }
 
 
-/* Estilos específicos para cada tipo de ronda */
-.round.of-32 {
-    margin-top: 0; /* Asegura que la primera ronda comience desde el borde superior */
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.round.of-16 {
-    margin-top: 60px; /* Ajusta la posición de la ronda de 16avos */
-}
-
-.round.quarter-finals {
-    margin-top: 120px; /* Ajusta la posición de los cuartos de final */
-}
-
-.round.semi-finals {
-    margin-top: 180px; /* Ajusta la posición de las semifinales */
-}
-
-.round.final {
-    margin-top: 240px; /* Ajusta la posición de la final */
+.language-switch img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
 
+/* Estilo para el hipervínculo modificado */
+.event-info h3 a {
+    color: var(--title-event); /* Color azul para el hipervínculo */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.event-info h3 a:hover {
+    color: #1e87d3; /* Color más oscuro al pasar el mouse */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
