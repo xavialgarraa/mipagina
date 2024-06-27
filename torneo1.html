@@ -148,12 +148,24 @@
             document.getElementById('side-nav').classList.remove('show');
         });
 
-        // Alternar entre modos claro y oscuro
-        document.getElementById('checkbox').addEventListener('change', function(event) {
-            if (event.target.checked) {
-                document.body.classList.add('light-mode');
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+        // Aplicar el modo guardado en localStorage al cargar la página
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.classList.add(theme);
+                checkbox.checked = theme === 'light-mode';
+            }
+        };
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
             } else {
-                document.body.classList.remove('light-mode');
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
             }
         });
 
@@ -176,32 +188,32 @@
         document.addEventListener("DOMContentLoaded", function () {
             const matches = [
                 // Round of 32
-                { round: "Round of 32", player1: "Player A1", player2: "Player B1"},
-                { round: "Round of 32", player1: "Player A2", player2: "Player B2", result: "Player A2" },
-                { round: "Round of 32", player1: "Player A3", player2: "Player B3", result: "Player A3" },
-                { round: "Round of 32", player1: "Player A4", player2: "Player B4", result: "Player A4" },
-                { round: "Round of 32", player1: "Player A5", player2: "Player B5", result: "Player A5" },
-                { round: "Round of 32", player1: "Player A6", player2: "Player B6", result: "Player A6" },
-                { round: "Round of 32", player1: "Player A7", player2: "Player B7", result: "Player A7" },
-                { round: "Round of 32", player1: "Player A8", player2: "Player B8", result: "Player A8" },
-                { round: "Round of 32", player1: "Player A9", player2: "Player B9", result: "Player A9" },
-                { round: "Round of 32", player1: "Player A10", player2: "Player B10", result: "Player A10" },
-                { round: "Round of 32", player1: "Player A11", player2: "Player B11", result: "Player A11" },
-                { round: "Round of 32", player1: "Player A12", player2: "Player B12", result: "Player A12" },
-                { round: "Round of 32", player1: "Player A13", player2: "Player B13", result: "Player A13" },
-                { round: "Round of 32", player1: "Player A14", player2: "Player B14", result: "Player A14" },
-                { round: "Round of 32", player1: "Player A15", player2: "Player B15", result: "Player A15" },
-                { round: "Round of 32", player1: "Player A16", player2: "Player B16", result: "Player A16" },
+                { round: "Round of 32", player1: "Player A1", player2: "Player B1", result: ""},
+                { round: "Round of 32", player1: "Player A2", player2: "Player B2", result: ""},
+                { round: "Round of 32", player1: "Player A3", player2: "Player B3", result: "" },
+                { round: "Round of 32", player1: "Player A4", player2: "Player B4", result: "" },
+                { round: "Round of 32", player1: "Player A5", player2: "Player B5", result: "" },
+                { round: "Round of 32", player1: "Player A6", player2: "Player B6", result: "" },
+                { round: "Round of 32", player1: "Player A7", player2: "Player B7", result: ""},
+                { round: "Round of 32", player1: "Player A8", player2: "Player B8", result: ""},
+                { round: "Round of 32", player1: "Player A9", player2: "Player B9", result: ""},
+                { round: "Round of 32", player1: "Player A10", player2: "Player B10", result: ""},
+                { round: "Round of 32", player1: "Player A11", player2: "Player B11", result: ""},
+                { round: "Round of 32", player1: "Player A12", player2: "Player B12", result: "" },
+                { round: "Round of 32", player1: "Player A13", player2: "Player B13", result: "" },
+                { round: "Round of 32", player1: "Player A14", player2: "Player B14", result: "" },
+                { round: "Round of 32", player1: "Player A15", player2: "Player B15", result: "" },
+                { round: "Round of 32", player1: "Player A16", player2: "Player B16", result: "" },
 
                 // Round of 16
-                { round: "Round of 16", player1: "Winner A1/B1", player2: "Winner A2/B2", result: "A2" },
-                { round: "Round of 16", player1: "Winner A3/B3", player2: "Winner A4/B4", result: "A1" },
-                { round: "Round of 16", player1: "Winner A5/B5", player2: "Winner A6/B6", result: "" },
-                { round: "Round of 16", player1: "Winner A7/B7", player2: "Winner A8/B8", result: "" },
-                { round: "Round of 16", player1: "Winner A9/B9", player2: "Winner A10/B10", result: "" },
-                { round: "Round of 16", player1: "Winner A11/B11", player2: "Winner A12/B12", result: "" },
-                { round: "Round of 16", player1: "Winner A13/B13", player2: "Winner A14/B14", result: "" },
-                { round: "Round of 16", player1: "Winner A15/B15", player2: "Winner A16/B16", result: "" },
+                { round: "Round of 16", player1: "Player A1", player2: "Player A2", result: "" },
+                { round: "Round of 16", player1: "Player A3", player2: "Player A4", result: "" },
+                { round: "Round of 16", player1: "Player A5", player2: "Player A6", result: "" },
+                { round: "Round of 16", player1: "Player A7", player2: "Player A8", result: "" },
+                { round: "Round of 16", player1: "Player A9", player2: "Player A10", result: "" },
+                { round: "Round of 16", player1: "Player A11", player2: "Player A12", result: "" },
+                { round: "Round of 16", player1: "Player A13", player2: "Player A14", result: "" },
+                { round: "Round of 16", player1: "Player A15", player2: "Player A16", result: "" },
 
                 // Quarter-finals
                 { round: "Quarter-finals", player1: "Winner R16-1", player2: "Winner R16-2", result: "" },
@@ -242,82 +254,101 @@
 
             // Función para generar partidos de la siguiente ronda
             function generateNextRound(currentRound, nextRound) {
-                
-            }
-
-            // Función para mostrar el bracket
-            function displayBracket() {
-                const bracketContainer = document.getElementById('bracket');
-                bracketContainer.innerHTML = ""; // Limpiar el contenido previo
-
-                Object.keys(rounds).forEach(round => {
-                    const roundDiv = document.createElement('div');
-                    roundDiv.className = 'round ' + round.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                    const roundHeader = document.createElement('div');
-                    roundHeader.className = 'round-header';
-                    roundHeader.innerText = round;
-                    roundDiv.appendChild(roundHeader);
-
-                    rounds[round].forEach(match => {
-                        const matchDiv = document.createElement('div');
-                        matchDiv.className = 'match';
-                        matchDiv.innerText = `${match.player1}\n${match.player2}`;
-                        roundDiv.appendChild(matchDiv);
-                    });
-
-                    bracketContainer.appendChild(roundDiv);
+                rounds[currentRound].forEach((match, index) => {
+                    if (match.result) {
+                        let nextMatchIndex = Math.floor(index / 2);
+                        if (!rounds[nextRound][nextMatchIndex]) {
+                            rounds[nextRound][nextMatchIndex] = { player1: '', player2: '' };
+                        }
+                        if (index % 2 === 0) {
+                            rounds[nextRound][nextMatchIndex].player1 = match.result;
+                        } else {
+                            rounds[nextRound][nextMatchIndex].player2 = match.result;
+                        }
+                    }
                 });
             }
 
-            // Inicializar y mostrar el bracket
+            // Función para mostrar el bracket
+            // Actualiza la función displayBracket() en tu JavaScript
+function displayBracket() {
+    const bracketContainer = document.getElementById('bracket');
+    bracketContainer.innerHTML = ""; // Limpiar el contenido previo
+
+    Object.keys(rounds).forEach(round => {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'round ' + round.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const roundHeader = document.createElement('div');
+        roundHeader.className = 'round-header';
+        roundHeader.innerText = round;
+        roundDiv.appendChild(roundHeader);
+
+        rounds[round].forEach(match => {
+            const matchDiv = document.createElement('div');
+            matchDiv.className = 'match';
+            matchDiv.innerText = `${match.player1} \n ${match.player2}`;
+            
+            // Añadir resultado si está disponible
+            if (match.result) {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerText = `Avanza: ${match.result}`;
+                matchDiv.appendChild(resultDiv);
+            }
+
+            // Agregar clase según la ronda para controlar altura desde CSS
+            matchDiv.classList.add(round.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') + '-match');
+
+            roundDiv.appendChild(matchDiv);
+        });
+
+        bracketContainer.appendChild(roundDiv);
+    });
+}
+
+
+            function generateMatchesList() {
+                const matches = [
+                    { player1: 'Jugador 01', player2: 'Jugador 02', round: '16avos de Final', date: '13 de julio', time: '19:00', result: ''},
+                    { player1: 'Jugador 03', player2: 'Jugador 04', round: '16avos de Final', date: '13 de julio', time: '19:00', result: '' },
+                    { player1: 'Jugador 05', player2: 'Jugador 06', round: '16avos de Final', date: '13 de julio', time: '19:00', result: '' },
+                    { player1: 'Jugador 07', player2: 'Jugador 08', round: '16avos de Final', date: '13 de julio', time: '19:00' , result: ''},
+                    { player1: 'Jugador 09', player2: 'Jugador 10', round: '16avos de Final', date: '13 de julio', time: '20:00' , result: ''},
+                    { player1: 'Jugador 11', player2: 'Jugador 12', round: '16avos de Final', date: '13 de julio', time: '20:00', result: '' },
+                    { player1: 'Jugador 13', player2: 'Jugador 14', round: '16avos de Final', date: '13 de julio', time: '20:00', result: '' },
+                    { player1: 'Jugador 15', player2: 'Jugador 16', round: '16avos de Final', date: '13 de julio', time: '20:00', result: '' },
+                    { player1: 'Jugador 17', player2: 'Jugador 18', round: '16avos de Final', date: '13 de julio', time: '21:00', result: '' },
+                    { player1: 'Jugador 19', player2: 'Jugador 20', round: '16avos de Final', date: '13 de julio', time: '21:00', result: '' },
+                    { player1: 'Jugador 21', player2: 'Jugador 22', round: '16avos de Final', date: '13 de julio', time: '21:00', result: '' },
+                    { player1: 'Jugador 23', player2: 'Jugador 24', round: '16avos de Final', date: '13 de julio', time: '21:00', result: '' },
+                    { player1: 'Jugador 25', player2: 'Jugador 26', round: '16avos de Final', date: '13 de julio', time: '22:00', result: '' },
+                    { player1: 'Jugador 27', player2: 'Jugador 28', round: '16avos de Final', date: '13 de julio', time: '22:00', result: '' },
+                    { player1: 'Jugador 29', player2: 'Jugador 30', round: '16avos de Final', date: '13 de julio', time: '22:00', result: '' },
+                    { player1: 'Jugador 31', player2: 'Jugador 32', round: '16avos de Final', date: '13 de julio', time: '22:00', result: '' },
+                ];
+
+                const matchesListContainer = document.getElementById('matches-list');
+                matchesListContainer.innerHTML = ""; // Limpiar el contenido previo
+
+                matches.forEach((match, index) => {
+                    const matchItem = document.createElement('div');
+                    matchItem.classList.add('match-item');
+                    matchItem.innerHTML = `
+                        <span>${match.player1} vs ${match.player2}</span>
+                        <span>Ronda: ${match.round}</span>
+                        <span>Fecha: ${match.date} a las ${match.time}</span>
+                        ${match.result ? `<span>Resultado: ${match.result}</span>` : ''}
+                    `;
+                    matchesListContainer.appendChild(matchItem);
+                });
+            }
+
             initializeRounds();
             updateResults();
             displayBracket();
-        });
-
-        function generateMatchesList() {
-            const matches = [
-                { player1: 'Jugador 1', player2: 'Jugador 2', round: '16avos de Final', date: '13 de julio', time: '19:00' },
-                { player1: 'Jugador 3', player2: 'Jugador 4', round: '16avos de Final', date: '13 de julio', time: '19:00' },
-                { player1: 'Jugador 5', player2: 'Jugador 6', round: '16avos de Final', date: '13 de julio', time: '19:00' },
-                { player1: 'Jugador 7', player2: 'Jugador 8', round: '16avos de Final', date: '13 de julio', time: '19:00' },
-                { player1: 'Jugador 9', player2: 'Jugador 10', round: '16avos de Final', date: '13 de julio', time: '20:00' },
-                { player1: 'Jugador 11', player2: 'Jugador 12', round: '16avos de Final', date: '13 de julio', time: '20:00' },
-                { player1: 'Jugador 13', player2: 'Jugador 14', round: '16avos de Final', date: '13 de julio', time: '20:00' },
-                { player1: 'Jugador 15', player2: 'Jugador 16', round: '16avos de Final', date: '13 de julio', time: '20:00' },
-                { player1: 'Jugador 17', player2: 'Jugador 18', round: '16avos de Final', date: '13 de julio', time: '21:00' },
-                { player1: 'Jugador 19', player2: 'Jugador 20', round: '16avos de Final', date: '13 de julio', time: '21:00' },
-                { player1: 'Jugador 21', player2: 'Jugador 22', round: '16avos de Final', date: '13 de julio', time: '21:00' },
-                { player1: 'Jugador 23', player2: 'Jugador 24', round: '16avos de Final', date: '13 de julio', time: '21:00' },
-                { player1: 'Jugador 25', player2: 'Jugador 26', round: '16avos de Final', date: '13 de julio', time: '22:00' },
-                { player1: 'Jugador 27', player2: 'Jugador 28', round: '16avos de Final', date: '13 de julio', time: '22:00' },
-                { player1: 'Jugador 29', player2: 'Jugador 30', round: '16avos de Final', date: '13 de julio', time: '22:00' },
-                { player1: 'Jugador 31', player2: 'Jugador 32', round: '16avos de Final', date: '13 de julio', time: '22:00' },
-                
-            ];
-
-            const matchesListContainer = document.getElementById('matches-list');
-
-            matches.forEach((match, index) => {
-                const matchItem = document.createElement('div');
-                matchItem.classList.add('match-item');
-                matchItem.innerHTML = `
-                    <span>${match.player1} vs ${match.player2}</span>
-                    <span>Ronda: ${match.round}</span>
-                    <span>Fecha: ${match.date} a las ${match.time}</span>
-                `;
-                matchesListContainer.appendChild(matchItem);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
             generateMatchesList();
         });
-
-
-
-        // Mostrar la sección general-info por defecto
-        showSection('general-info');
     </script>
 </body>
 </html>
+        
