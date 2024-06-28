@@ -450,42 +450,62 @@ a:hover {
     color: #1e87d3; /* Color más oscuro al pasar el mouse */
     text-decoration: underline; /* Subrayado al pasar el mouse */
 }
-
-/* Ajustes adicionales de diseño según sea necesario */
-
+/* Carrusel de imágenes */
 .carousel {
     position: relative;
-    flex: 1;
-    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
 
-.carousel-image {
-    max-width: 100%;
-    max-height: 300px;
+.carousel-inner {
+    display: flex;
+    width: 100%;
+}
+
+.carousel-item {
     display: none;
+    width: 100%;
+    transition: opacity 0.5s;
 }
 
-.carousel-image:first-child {
+.carousel-item.active {
     display: block;
 }
 
-.carousel-control {
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    width: auto;
+    padding: 16px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
     border: none;
-    padding: 10px;
     cursor: pointer;
+    transform: translateY(-50%);
+    border-radius: 50%;
 }
 
-.carousel-control.prev {
-    left: 0;
+.carousel-control-prev {
+    left: 10px;
 }
 
-.carousel-control.next {
-    right: 0;
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
 .info-link {
