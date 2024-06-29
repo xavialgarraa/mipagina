@@ -286,16 +286,16 @@ body.light-mode {
     --text-color: #333;
     --accent-color: #6a5acd;
     --hover-color: #908ac4;
-    --section-background: #ededed;
+    --section-background: #f8f8f8;
     --form-background: #fff;
     --button-background: #6a5acd;
     --button-hover-background: #555;
     --footer-background: #e7e7e7;
-    --list-background: #e4e4e4;
-    --title-event:#303336; 
+    --list-background: #f2f2f2;
+    --title-event:#2f3236; 
     --asccolor: #d6a4ff;
     --descolor:#ff8888;
-    --link:#2f00ff;
+    --link:#04389a;
 }
 
 /*Estilos para el interruptor de tema*/
@@ -416,7 +416,7 @@ input:checked + .slider:before {
 .event-info {
     flex: 1; /* Ocupa todo el espacio disponible */
     padding: 10px; /* Espaciado interno */
-    background-color: var(--section-background); /* Color de fondo */
+    background-color: var(--list-background); /* Color de fondo */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra ligera */
 }
@@ -511,7 +511,7 @@ a:hover {
 .info-link {
     display: inline-block;
     margin-top: 10px;
-    color: var(--title-event); /* Ajusta este color según el tema de tu sitio */
+    color: var(--link); /* Ajusta este color según el tema de tu sitio */
     text-decoration: none;
     font-size: 1em;
 }
@@ -588,3 +588,46 @@ tr:hover {
 .foto {
     text-align: center; /* Para centrar horizontalmente */
   }
+
+  
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    #contact {
+        padding: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+a {
+    color: var(--link); /* Color azul para el hipervínculo */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+a:hover {
+    color: #1e87d3; /* Color más oscuro al pasar el mouse */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+

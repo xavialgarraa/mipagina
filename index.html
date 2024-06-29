@@ -97,7 +97,7 @@
         <section id="contact">
             <h2>Contacto</h2>
             <p>Puedes contactarme a través de este formulario.</p>
-            <form>
+            <form id="contact-form">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Correo electrónico:</label>
@@ -112,6 +112,7 @@
         <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         // Mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -181,20 +182,24 @@
             }
             slides[slideIndex].style.display = "block";  
         }
+
+        // Inicializar EmailJS
         (function() {
-        emailjs.init("TU_USER_ID");
-    })();
+            emailjs.init("Tnnd3MqEPNponrPkr");
+        })();
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+        // Manejar el envío del formulario
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        emailjs.sendForm('service_ip2tz8l', 'template_fcwl5rs', this)
-            .then(function() {
-                alert('Mensaje enviado correctamente');
-            }, function(error) {
-                alert('Hubo un error: ' + error);
-            });
-    });
+            emailjs.sendForm('service_ip2tz8l', 'template_fcwl5rs', this)
+                .then(function() {
+                    alert('Mensaje enviado correctamente');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Hubo un error: ' + error);
+                });
+        });
     </script>
 </body>
 </html>
