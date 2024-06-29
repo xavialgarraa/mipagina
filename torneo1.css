@@ -88,12 +88,14 @@ section {
 section.active {
     display: block;
 }
-
 .bracket {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap; /* Evita que las columnas se envuelvan */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    justify-content: flex-start; /* Alinea las columnas al inicio */
     align-items: flex-start;
+    width: 100%;
+    padding: 10px; /* Añade algo de espacio para el desplazamiento */
 }
 
 #bracket .round {
@@ -159,26 +161,20 @@ section.active {
 
 @media (max-width: 768px) {
     .bracket {
-        flex-direction: column;
-        align-items: center;
-        overflow-x: auto;
+        padding: 10px; /* Asegura un espacio para el desplazamiento horizontal */
     }
 
     .round {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        overflow-x: auto;
+        flex-direction: column; /* Mantiene las columnas en dirección vertical */
     }
 
-    .match {
-        width: 100px;
-    }
+   
 
     .connector {
-        display: none;
+        display: none; /* Oculta los conectores en pantallas pequeñas */
     }
 }
+
 
 /* Estilos para la lista de partidos */
 #matches-list {
@@ -347,33 +343,57 @@ section.active {
 
 /* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .round .match {
-        font-size: 12px; /* Reducir el tamaño de fuente */
-    }
+    
+.round.round-of-32 {
+    margin-top: 20px; /* Distancia desde el borde superior del contenedor del bracket */
+}
 
-    .round-header {
-        font-size: 14px; /* Reducir el tamaño del encabezado de ronda */
-        margin-bottom: 5px; /* Reducir la distancia entre encabezado y partidos */
-    }
+.round.round-of-32 .match {
+    /* Estilos para partidos de los 16avos de final */
+    height: 50px; /* Ajusta la altura según sea necesario */
+}
 
-    .round.round-of-32 .match {
-        height: 40px; /* Ajustar la altura para pantalla más pequeña */
-    }
+.round.round-of-16 {
+    margin-top: 1000px; /* Distancia desde el borde superior del contenedor del bracket */
+}
 
-    .round.round-of-16 .match {
-        height: 50px; /* Ajustar la altura para pantalla más pequeña */
-    }
+.round.round-of-16 .match {
+    /* Estilos para partidos de los octavos de final */
+    margin-top: 50px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 52px; /* Distancia entre partidos dentro de la misma ronda */
 
-    .round.quarter-finals .match {
-        margin-top: 0px; /* Distancia desde el borde superior del contenedor del bracket */
-        height: 60px; /* Ajustar la altura para pantalla más pequeña */
-    }
+}
 
-    .round.semi-finals .match {
-        height: 70px; /* Ajustar la altura para pantalla más pequeña */
-    }
+.round.quarter-finals {
+    margin-top: 40px; /* Distancia desde el borde superior del contenedor del bracket */
+}
 
-    .round.final .match {
-        height: 80px; /* Ajustar la altura para pantalla más pequeña */
-    }
+.round.quarter-finals .match {
+    margin-top: 138px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 70px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 138px; /* Distancia entre partidos dentro de la misma ronda */
+
+}
+
+.round.semi-finals {
+    margin-top: 50px; /* Distancia desde el borde superior del contenedor del bracket */
+}
+
+.round.semi-finals .match {
+    margin-top: 290px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 100px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 350px; /* Distancia entre partidos dentro de la misma ronda */
+
+}
+
+.round.final {
+    margin-top: 60px; /* Distancia desde el borde superior del contenedor del bracket */
+}
+
+.round.final .match {
+    margin-top: 590px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 200px; /* Ajusta la altura según sea necesario */
+}
+
 }
