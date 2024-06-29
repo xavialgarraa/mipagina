@@ -181,6 +181,20 @@
             }
             slides[slideIndex].style.display = "block";  
         }
+        (function() {
+        emailjs.init("TU_USER_ID");
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_ip2tz8l', 'template_fcwl5rs', this)
+            .then(function() {
+                alert('Mensaje enviado correctamente');
+            }, function(error) {
+                alert('Hubo un error: ' + error);
+            });
+    });
     </script>
 </body>
 </html>
