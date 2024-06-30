@@ -29,8 +29,8 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
-                <li><a href="directos.html">Directos</a></li>
-                <li><a href="estadisticas.html">Estadísticas</a></li>
+                <!--<li><a href="directos.html">Directos</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li>-->
                 <li><a href="index.html#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -67,19 +67,19 @@
             <img src="lugar.jpg" alt="Lugar del evento" class="imagen-1">
             <p>El torneo contará con 32 participantes y se llevará a cabo en dos fases:</p>
             <ul>
-                <li><strong>Primera fase (16avos de final):</strong> Sábado, 13 de julio de 2024.</li>
-                <li><strong>Fase final:</strong> Sábado, 20 de julio de 2024.</li>
+                <li><strong>Primera fase (16avos de final):</strong> Viernes, 19 de julio de 2024.</li>
+                <li><strong>Fase final:</strong> Domingo, 21 de julio de 2024.</li>
             </ul>
             <p>El horario de los partidos es el siguiente:</p>
             <ul>
-                <li>13 de julio (16avos de final):</li>
+                <li>19 de julio (16avos de final):</li>
                 <ul>
                     <li>19:00 - 5/6 partidos</li>
                     <li>20:00 - 5/6 partidos</li>
                     <li>21:00 - 5/6 partidos</li>
                     <li>22:00 - 1-2 partidos (si es necesario)</li>
                 </ul>
-                <li>20 de julio (Fase final):</li>
+                <li>21 de julio (Fase final):</li>
                 <ul>
                     <li>19:00 - 8 partidos (8vos de final)</li>
                     <li>20:30 - 4 partidos (4tos de final)</li>
@@ -104,14 +104,26 @@
         </section>
         <section id="organization-location">
             <h2>Organización y Lugar</h2>
-            <p>El torneo está organizado por Xavi Algarra Streams en colaboración con el Red Rock Bar. El Red Rock Bar está ubicado en una de las zonas más vibrantes de Lloret de Mar, ofreciendo un ambiente perfecto para disfrutar del billar y la competición.</p>
+            <p>El torneo está organizado por Algarra Streams & Scout_marcelo en colaboración con el Red Rock Bar. El Red Rock Bar está ubicado en una de las zonas más vibrantes de Lloret de Mar, ofreciendo un ambiente perfecto para disfrutar del billar y la competición.</p>
             <p><strong>Dirección:</strong> Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
             <div id="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.8383787335264!2d2.8444822151316514!3d41.70496587923406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb9ab81b8c1b71%3A0xf40a43721f8f7e35!2sAv.%20Vila%20de%20Tossa%2C%2070%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2ses!4v1689164788291!5m2!1sen!2ses"
                     width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <div class="foto">
-            <img src="redrock.jpeg" alt="Red Rock Bar" style="width:60%; height:auto; margin-top: 20px;text-align: center;">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="image1.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image2.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image3.jpg" alt="Imagen 3">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" onclick="prevSlide()">&#10094;</a>
+                <a class="carousel-control-next" onclick="nextSlide()">&#10095;</a>
             </div>
         </section>
         
@@ -123,10 +135,10 @@
                 <li><strong>Segundo Lugar:</strong> €25 + entrada gratuita próximo torneo</li>
             </ul>
             <div class="foto">
-            <img src="taco.jpg" alt="Premios" style="width:60%; height:auto; margin-top: 20px;">
+            <img src="taco.jpg" alt="Premios" style="width:40%; height:auto; margin-top: 20px;">
             </div>
             
-            <p>La inscripción al torneo tiene un costo de €10. Para inscribirte, por favor, completa el formulario de inscripción en la <a href="https://forms.gle/xb6jtPf3ukTpdnzs5">página de inscripción</a>.</p>
+            <p>La inscripción al torneo tiene un costo de €6. Para inscribirte, por favor, completa el formulario de inscripción en la <a href="https://forms.gle/xb6jtPf3ukTpdnzs5">página de inscripción</a>  y completa tu pago tanto en efectivo como con bizum.</p>
         </section>        
         <button onclick="window.location.href='torneos.html'" style="margin-top: 20px;">Volver a Torneos</button>
     </main>
@@ -186,6 +198,34 @@
 
             document.querySelector('.section-nav a[href="#' + sectionId + '"]').classList.add('active');
         }
+        
+        // Carrusel
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlides(slideIndex -= 1);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-item");
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }    
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex].style.display = "block";  
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             const matches = [
                 // Round of 32
@@ -207,14 +247,14 @@
                 { round: "Round of 32", player1: "Player A16", player2: "Player B16", result: "" },
 
                 // Round of 16
-                { round: "Round of 16", player1: "Player A1", player2: "Player A2", result: "" },
-                { round: "Round of 16", player1: "Player A3", player2: "Player A4", result: "" },
-                { round: "Round of 16", player1: "Player A5", player2: "Player A6", result: "" },
-                { round: "Round of 16", player1: "Player A7", player2: "Player A8", result: "" },
-                { round: "Round of 16", player1: "Player A9", player2: "Player A10", result: "" },
-                { round: "Round of 16", player1: "Player A11", player2: "Player A12", result: "" },
-                { round: "Round of 16", player1: "Player A13", player2: "Player A14", result: "" },
-                { round: "Round of 16", player1: "Player A15", player2: "Player A16", result: "" },
+                { round: "Round of 16", player1: "Winner A1/B1", player2: "Winner A2/B2", result: "" },
+                { round: "Round of 16", player1: "Winner A3/B3", player2: "Winner A4/B4", result: "" },
+                { round: "Round of 16", player1: "Winner A5/B5", player2: "Winner A6/B6", result: "" },
+                { round: "Round of 16", player1: "Winner A7/B7", player2: "Winner A8/B8", result: "" },
+                { round: "Round of 16", player1: "Winner A9/B9", player2: "Winner A10/B10", result: "" },
+                { round: "Round of 16", player1: "Winner A11/B11", player2: "Winner A12/B12", result: "" },
+                { round: "Round of 16", player1: "Winner A13/B13", player2: "Winner A14/B14", result: "" },
+                { round: "Round of 16", player1: "Winner A15/B15", player2: "Winner A16/B16", result: "" },
 
                 // Quarter-finals
                 { round: "Quarter-finals", player1: "Winner R16-1", player2: "Winner R16-2", result: "" },

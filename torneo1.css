@@ -92,7 +92,7 @@ section.active {
     display: flex;
     flex-wrap: nowrap; /* Evita que las columnas se envuelvan */
     overflow-x: auto; /* Permite el desplazamiento horizontal */
-    justify-content: flex-start; /* Alinea las columnas al inicio */
+    justify-content: space-around; /* Alinea las columnas al inicio */
     align-items: flex-start;
     width: 100%;
     padding: 10px; /* Añade algo de espacio para el desplazamiento */
@@ -275,7 +275,7 @@ section.active {
     height: 50px;
 }
 
-//* Estilos específicos por ronda */
+/* Estilos específicos por ronda */
 .round-header {
     font-weight: bold;
     margin-bottom: 10px; /* Distancia entre el encabezado de la ronda y los partidos */
@@ -295,8 +295,10 @@ section.active {
 
 .round.round-of-32 .match {
     /* Estilos para partidos de los 16avos de final */
-    height: 50px; /* Ajusta la altura según sea necesario */
+    height: 25px; /* Ajusta la altura según sea necesario */
+    width: 90px;
 }
+
 
 .round.round-of-16 {
     margin-top: 1000px; /* Distancia desde el borde superior del contenedor del bracket */
@@ -304,9 +306,10 @@ section.active {
 
 .round.round-of-16 .match {
     /* Estilos para partidos de los octavos de final */
-    margin-top: 50px; /* Distancia desde el borde superior del contenedor del bracket */
-    height: 60px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 52px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-top: 40px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 30px; /* Ajusta la altura según sea necesario */
+    width: 120px;
+    margin-bottom: 42px; /* Distancia entre partidos dentro de la misma ronda */
 
 }
 
@@ -315,9 +318,10 @@ section.active {
 }
 
 .round.quarter-finals .match {
-    margin-top: 138px; /* Distancia desde el borde superior del contenedor del bracket */
-    height: 70px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 138px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-top: 93px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 93px; /* Distancia entre partidos dentro de la misma ronda */
+    width: 100px;
 
 }
 
@@ -326,9 +330,11 @@ section.active {
 }
 
 .round.semi-finals .match {
-    margin-top: 290px; /* Distancia desde el borde superior del contenedor del bracket */
+    margin-top: 205px; /* Distancia desde el borde superior del contenedor del bracket */
     height: 100px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 350px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-bottom: 205px; /* Distancia entre partidos dentro de la misma ronda */
+    width: 100px;
+
 
 }
 
@@ -337,8 +343,10 @@ section.active {
 }
 
 .round.final .match {
-    margin-top: 590px; /* Distancia desde el borde superior del contenedor del bracket */
+    margin-top: 430px; /* Distancia desde el borde superior del contenedor del bracket */
     height: 200px; /* Ajusta la altura según sea necesario */
+    width: 100px;
+
 }
 
 /* Media query para pantallas más pequeñas */
@@ -350,8 +358,10 @@ section.active {
 
 .round.round-of-32 .match {
     /* Estilos para partidos de los 16avos de final */
-    height: 50px; /* Ajusta la altura según sea necesario */
+    height: 25px; /* Ajusta la altura según sea necesario */
+    width: 90px;
 }
+
 
 .round.round-of-16 {
     margin-top: 1000px; /* Distancia desde el borde superior del contenedor del bracket */
@@ -359,9 +369,10 @@ section.active {
 
 .round.round-of-16 .match {
     /* Estilos para partidos de los octavos de final */
-    margin-top: 50px; /* Distancia desde el borde superior del contenedor del bracket */
-    height: 60px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 52px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-top: 40px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 30px; /* Ajusta la altura según sea necesario */
+    width: 120px;
+    margin-bottom: 42px; /* Distancia entre partidos dentro de la misma ronda */
 
 }
 
@@ -370,9 +381,10 @@ section.active {
 }
 
 .round.quarter-finals .match {
-    margin-top: 138px; /* Distancia desde el borde superior del contenedor del bracket */
-    height: 70px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 138px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-top: 93px; /* Distancia desde el borde superior del contenedor del bracket */
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 93px; /* Distancia entre partidos dentro de la misma ronda */
+    width: 100px;
 
 }
 
@@ -381,9 +393,11 @@ section.active {
 }
 
 .round.semi-finals .match {
-    margin-top: 290px; /* Distancia desde el borde superior del contenedor del bracket */
+    margin-top: 205px; /* Distancia desde el borde superior del contenedor del bracket */
     height: 100px; /* Ajusta la altura según sea necesario */
-    margin-bottom: 350px; /* Distancia entre partidos dentro de la misma ronda */
+    margin-bottom: 205px; /* Distancia entre partidos dentro de la misma ronda */
+    width: 100px;
+
 
 }
 
@@ -392,8 +406,10 @@ section.active {
 }
 
 .round.final .match {
-    margin-top: 590px; /* Distancia desde el borde superior del contenedor del bracket */
+    margin-top: 430px; /* Distancia desde el borde superior del contenedor del bracket */
     height: 200px; /* Ajusta la altura según sea necesario */
+    width: 100px;
+
 }
 
 }

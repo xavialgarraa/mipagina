@@ -55,23 +55,41 @@
     <main>
         <section id="about">
             <h2>Sobre mí</h2>
-            <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
+            <div class="about-container">
+                <img src="tu-foto.jpg" alt="Xavi Algarra" class="about-image">
+                <div class="about-content">
+                    <p>Soy Xavi Algarra, estudiante de ingeniería informática y realizador deportivo de eventos en streaming...</p>
+                    <p>Tengo experiencia en la organización y retransmisión de torneos deportivos...</p>
+                    <p>Mi pasión es combinar tecnología y deporte para crear experiencias únicas...</p>
+                </div>
+            </div>
         </section>
+        
         <section id="news">
-            <h2>Noticias</h2>
-            <article>
-                <h3>Nueva Temporada de Torneos</h3>
-                <p>¡Prepárate para la nueva temporada de torneos! <a href="torneos.html">Ver torneos</a></p>
-            </article>
-            <article>
-                <h3>Resultados del Último Torneo</h3>
-                <p>Revisa los resultados del último torneo <a href="torneos.html">aquí</a>.</p>
-            </article>
-            <article>
-                <h3>Inscripciones Abiertas</h3>
-                <p>Ya están abiertas las inscripciones para el próximo torneo. <a href="torneos.html">Inscribirse ahora</a></p>
-            </article>
+            <div class="news-header">
+                <h2>Noticias</h2>
+                <input type="text" id="search" placeholder="Buscar noticias..." />
+            </div>
+            <div id="news-articles">
+                <article>
+                    <div class="news-content">
+                        <h3>Nueva Temporada de Torneos</h3>
+                        <p>¡Prepárate para la nueva temporada de torneos! <a href="torneos.html">Ver torneos</a></p>
+                    </div>
+                    <img src="image1.jpg" alt="Torneo" class="news-image">
+                </article>
+                <article>
+                    <div class="news-content">
+                        <h3>Inscripciones Abiertas</h3>
+                        <p>Ya están abiertas las inscripciones para el próximo torneo. <a href="torneos.html">Inscribirse ahora</a></p>
+                    </div>
+                    <img src="image2.jpg" alt="Inscripciones" class="news-image">
+                </article>
+                <!-- Agrega más artículos según sea necesario -->
+            </div>
         </section>
+        
+        
         <section id="gallery">
             <h2>Galería</h2>
             <!-- Carrusel de imágenes -->
@@ -200,6 +218,23 @@
                     alert('Hubo un error: ' + error);
                 });
         });
+
+        document.getElementById('search').addEventListener('input', function() {
+    const searchValue = this.value.toLowerCase();
+    const articles = document.querySelectorAll('#news-articles article');
+
+    articles.forEach(article => {
+        const title = article.querySelector('h3').innerText.toLowerCase();
+        const content = article.querySelector('p').innerText.toLowerCase();
+
+        if (title.includes(searchValue) || content.includes(searchValue)) {
+            article.style.display = 'block';
+        } else {
+            article.style.display = 'none';
+        }
+    });
+});
+
     </script>
 </body>
 </html>
