@@ -147,6 +147,21 @@
     </footer>
     <script src="torneo1.js"></script>
     <script>
+        // Cerrar el menú lateral al hacer clic en un enlace
+        document.querySelectorAll('.side-nav ul a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('side-nav').classList.remove('show');
+            });
+        });
+
+        // Cerrar el menú lateral al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const sideNav = document.getElementById('side-nav');
+            if (!sideNav.contains(event.target) && !event.target.matches('.menu-toggle')) {
+                sideNav.classList.remove('show');
+            }
+        });
+
         // Mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');

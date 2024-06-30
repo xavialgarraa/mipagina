@@ -85,6 +85,21 @@
     </footer>
     <script src="script.js"></script>
     <script>
+        // Cerrar el menú lateral al hacer clic en un enlace
+        document.querySelectorAll('.side-nav ul a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('side-nav').classList.remove('show');
+            });
+        });
+
+        // Cerrar el menú lateral al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const sideNav = document.getElementById('side-nav');
+            if (!sideNav.contains(event.target) && !event.target.matches('.menu-toggle')) {
+                sideNav.classList.remove('show');
+            }
+        });
+
         // Función para mostrar/ocultar el formulario de Google y cambiar el texto del botón
         function toggleGoogleForm() {
             var formContainer = document.getElementById('google-form-container');

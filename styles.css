@@ -10,7 +10,7 @@
     --form-background: #333;
     --button-background: #6a5acd;
     --button-hover-background: #473d8b;
-    --footer-background: #1f1f1f;
+    --footer-background: #25252593;
     --list-background: #333;
     --title-event:#c0ddff; 
     --asccolor: #8c00ff;
@@ -258,6 +258,80 @@ footer {
     color: var(--text-color);
     margin-top: auto;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content > div {
+    flex: 1 1 300px;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.footer-about h3,
+.footer-contact h3,
+.footer-social h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.footer-contact-form {
+    max-width: 300px;
+    margin-top: 10px;
+}
+
+.footer-contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-contact-form input,
+.footer-contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.footer-contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer-contact-form button:hover {
+    background-color: #45a049;
+}
+
+.footer-social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-social ul li {
+    margin-bottom: 10px;
+}
+
+.footer-social ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-social ul li a:hover {
+    color: #4CAF50;
+}
+
 
 #participants-list li {
     background-color: var(--list-background);
@@ -645,12 +719,108 @@ a:hover {
     margin-bottom: 15px;
 }
 
+#search-container {
+    display: flex;
+    align-items: center;
+}
+
 #search {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
     max-width: 200px;
+    margin-left: auto; /* Esto coloca el campo de búsqueda a la derecha */
+}
+
+#sort {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    max-width: 150px;
+    margin-right: 10px;
+    background-color: var(--list-background); /* Color de fondo para el filtro "Más recientes" */
+    color: var(--text-color); /* Color de texto para el filtro "Más recientes" */
+
+}
+
+
+#news-articles {
+    display: grid;
+    gap: 15px;
+}
+
+#news-articles article {
+    background: var(--list-background);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#news-articles article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-content {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.news-image {
+    width: 120px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+#news-articles h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+#news-articles p {
+    color: var(--text-color);
+}
+#news {
+    background: var(--section-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    margin-right: 10px;
+}
+
+#sort {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    max-width: 150px;
+    margin-right: 10px;
 }
 
 #news-articles {
@@ -695,6 +865,7 @@ a:hover {
 }
 
 
+
 #about {
     background: var(--section-background);
     padding: 20px;
@@ -726,4 +897,27 @@ a:hover {
 #about p {
     margin-bottom: 10px;
     line-height: 1.6;
+}
+
+
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.main-content section {
+    width: 45%; /* Ajusta el ancho según necesites */
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main-content section {
+        width: auto; /* Ajusta el ancho según necesites */
+    }
+    
+
 }
