@@ -44,29 +44,16 @@
             <li><a href="#contact">Contacto</a></li>
         </ul>
     </nav>
-    <main>
-               
+    <main>          
         <section id="news">
             <div class="news-header">
                 <h2>Noticias</h2>
-                <!-- Icono de lupa para versión móvil -->
-                <div class="mobile-search-icon" onclick="toggleMobileSearch()">
-                    <img src="lupa.png" alt="Buscar">
-                </div>
-                <!-- Campo de búsqueda para escritorio -->
-                <input type="text" id="search" placeholder="Buscar noticias..." class="desktop-search">
-                <!-- Selector de orden para noticias -->
-                <select id="sort" class="desktop-sort">
+                <input type="text" id="search" placeholder="Buscar noticias..." />
+                <select id="sort">
                     <option value="latest">Más recientes</option>
                     <option value="oldest">Más antiguas</option>
                 </select>
             </div>
-            <!-- Campo de búsqueda para versión móvil (inicialmente oculto) -->
-            <div id="mobileSearch" class="mobile-search">
-                <input type="text" id="searchMobile" placeholder="Buscar noticias...">
-                <button onclick="hideMobileSearch()">Cerrar</button>
-            </div>
-           
             <div id="news-articles">
                 <article data-date="2024-06-15">
                     <div class="news-content">
@@ -301,22 +288,6 @@
 
             articles.forEach(article => articlesContainer.appendChild(article));
         }
-        // Función para mostrar el campo de búsqueda móvil
-    function toggleMobileSearch() {
-        var mobileSearch = document.getElementById('mobileSearch');
-        if (mobileSearch.style.display === 'block') {
-            mobileSearch.style.display = 'none';
-        } else {
-            mobileSearch.style.display = 'block';
-        }
-    }
-
-    // Función para ocultar el campo de búsqueda móvil
-    function hideMobileSearch() {
-        var mobileSearch = document.getElementById('mobileSearch');
-        mobileSearch.style.display = 'none';
-    }
-
     </script>
 </body>
 </html>

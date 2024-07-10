@@ -898,28 +898,37 @@ a:hover {
 
 }
 
-/* Estilos para versión móvil */
-.mobile-search-icon {
-    display: none; /* Por defecto oculto en escritorio */
-    cursor: pointer;
-}
-
-.mobile-search {
-    display: none; /* Por defecto oculto */
-}
-
-/* Estilos para escritorio */
+/* Estilos para versión escritorio */
 @media (min-width: 768px) {
-    .desktop-search {
-        display: block;
-    }
-    .desktop-sort {
-        display: inline-block;
-    }
-    .mobile-search-icon {
-        display: none; /* Oculto en escritorio */
-    }
-    .mobile-search {
-        display: none; /* Oculto en escritorio */
+    .mobile-search-icon img {
+        width: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
     }
 }
+
+
+/* Estilos para versión móvil */
+@media (max-width: 767px) {
+    .mobile-search-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .mobile-search-icon img {
+        width: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+    }
+
+    .mobile-search {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 10px;
+        right: 10px;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+}
+
