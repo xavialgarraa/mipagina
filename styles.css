@@ -249,88 +249,64 @@ button:hover {
     display: table;
 }
 
-
-
+/* Estilos base para el footer */
 footer {
     text-align: center;
-    padding: 5px;
+    padding: 20px 0;
     background-color: var(--footer-background);
     color: var(--text-color);
-    margin-top: auto;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-content > div {
-    flex: 1 1 300px;
-    margin: 0 20px;
-    text-align: left;
+.footer-links,
+.footer-social {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.footer-about h3,
-.footer-contact h3,
-.footer-social h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.footer-contact-form {
-    max-width: 300px;
-    margin-top: 10px;
-}
-
-.footer-contact-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.footer-contact-form input,
-.footer-contact-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.footer-contact-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.footer-contact-form button:hover {
-    background-color: #45a049;
-}
-
-.footer-social ul {
+.footer-links ul,
+.social-links {
     list-style-type: none;
     padding: 0;
 }
 
-.footer-social ul li {
-    margin-bottom: 10px;
+.footer-links ul li,
+.social-links li {
+    display: inline;
+    margin-right: 10px;
 }
 
-.footer-social ul li a {
+.footer-links ul li a,
+.social-links li a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-.footer-social ul li a:hover {
+.footer-links ul li a:hover,
+.social-links li a:hover {
     color: #4CAF50;
 }
+
+.footer-social img {
+    width: 40px; /* Ajusta el tamaño de las imágenes de redes sociales */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+}
+
+
 
 
 #participants-list li {
@@ -364,7 +340,7 @@ body.light-mode {
     --form-background: #fff;
     --button-background: #6a5acd;
     --button-hover-background: #555;
-    --footer-background: #e7e7e7;
+    --footer-background: #f7f7f7;
     --list-background: #f2f2f2;
     --title-event:#2f3236; 
     --asccolor: #d6a4ff;
@@ -920,4 +896,30 @@ a:hover {
     }
     
 
+}
+
+/* Estilos para versión móvil */
+.mobile-search-icon {
+    display: none; /* Por defecto oculto en escritorio */
+    cursor: pointer;
+}
+
+.mobile-search {
+    display: none; /* Por defecto oculto */
+}
+
+/* Estilos para escritorio */
+@media (min-width: 768px) {
+    .desktop-search {
+        display: block;
+    }
+    .desktop-sort {
+        display: inline-block;
+    }
+    .mobile-search-icon {
+        display: none; /* Oculto en escritorio */
+    }
+    .mobile-search {
+        display: none; /* Oculto en escritorio */
+    }
 }

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneos - Xavi Algarra</title>
+    <title>Xavi Algarra - Política de Privacidad</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Enlace al CSS de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0XfLm6W3QNC8rVR4YKUyMm4oG5dI9z6HR2vE4hTQzFBi5kVpUKpSYlP9m5E2rSYg7WbIq46M3gIMyUO0zArCIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -16,7 +15,6 @@
             <span></span>
         </div>
         <div class="logo" onclick="window.location.href = 'index.html';" style="cursor: pointer;">Algarra Streams</div>
-        <!-- HTML para el interruptor de tema -->
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" />
@@ -26,15 +24,11 @@
                 </div>
             </label>
         </div>
-
         <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
-                <!--
-                <li><a href="directos.html">Directos</a></li>
-                <li><a href="estadisticas.html">Estadísticas</a></li>  Nuevo enlace -->
-                <li><a href="index.html#contact">Contacto</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -47,37 +41,35 @@
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="torneos.html">Torneos</a></li>
-            <!--
-            <li><a href="directos.html">Directos</a></li>
-            <li><a href="estadisticas.html">Estadísticas</a></li>  Nuevo enlace -->
-            <li><a href="index.html#contact">Contacto</a></li>
+            <li><a href="#contact">Contacto</a></li>
         </ul>
     </nav>
     <main>
-        <section id="events">
-            <h2>Próximos Torneos</h2>
-            <div class="event">
-                <div class="event-info">
-                    <h3>Torneo de Billar en Red Rock Bar </h3>
-                    <p>Fecha: 21 de Julio de 2024</p>
-                    <p>Ubicación: Av. Vila de Tossa, 70, 17310 Lloret de Mar, Girona</p>
-                    <a href="torneo1.html" class="info-link">[+info/estadísticas...]</a>
-                    <div class="button-container clearfix">
-                        <button onclick="toggleGoogleForm()"><i class="fas fa-pencil-alt"></i> Inscribirse</button>
-                        <button onclick="toggleMap()"><i class="fas fa-map-marker-alt"></i> Cómo llegar</button>
-                    </div>
+        <section class="privacy-section">
+            <h1>Política de Privacidad</h1>
+            
+            <p>En Xavi Algarra - Eventos Deportivos, nos comprometemos a proteger y respetar tu privacidad. Esta política explica cómo recopilamos, utilizamos y protegemos la información personal que nos proporcionas a través de nuestro sitio web.</p>
+            
+            <h2>Información Recogida</h2>
+            <p>Recopilamos información personal cuando te registras en nuestros servicios, participas en nuestros torneos, te suscribes a nuestro boletín informativo, o nos contactas a través de formularios en línea. La información que recogemos puede incluir tu nombre, dirección de correo electrónico, información de contacto y otra información relevante.</p>
+            
+            <h2>Uso de la Información</h2>
+            <p>Utilizamos la información recogida para proporcionarte nuestros servicios, gestionar tu participación en torneos, enviar actualizaciones sobre eventos deportivos, mejorar nuestros servicios y comunicarnos contigo.</p>
+            
+            <h2>Seguridad de la Información</h2>
+            <p>Nos comprometemos a proteger la seguridad de tu información personal. Implementamos medidas técnicas y organizativas adecuadas para proteger tu información contra accesos no autorizados, pérdidas o modificaciones.</p>
+            
+            <h2>Compartición de Información</h2>
+            <p>No compartimos tu información personal con terceros sin tu consentimiento, excepto cuando sea necesario para proporcionarte servicios solicitados o cumplir con requisitos legales.</p>
+            
+            <h2>Acceso y Control de la Información Personal</h2>
+            <p>Respetamos tu derecho a acceder, corregir, actualizar o eliminar tu información personal. Puedes ejercer estos derechos enviándonos un correo electrónico a jalgarraperez@gmail.com.</p>
+            
+            <h2>Cambios en esta Política de Privacidad</h2>
+            <p>Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento. Te recomendamos revisar periódicamente esta página para estar informado sobre cómo protegemos tu información.</p>
 
-                    <div id="google-form-container" style="display: none;">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDv1GI5Ylrf0hlYkdyplB-w6IJvVkUonPsqCzClFsAzO1Vjw/viewform?embedded=true"
-                                width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-                    </div>
-                    <div id="map-container" style="display: none;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.988529473715!2d2.8502547767186325!3d41.70387201665902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb17a421732755%3A0xe5b9f14292a55dcc!2s41.703872%2C%202.852443!5e0!3m2!1ses!2ses!4v1689164788291!5m2!1ses!2ses" 
-                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-            <!-- Agregar más eventos aquí -->
+            <h2>Contacto</h2>
+            <p>Si tienes preguntas sobre nuestra política de privacidad, por favor contáctanos a través de nuestro formulario de contacto en línea o enviando un correo electrónico a jalgarraperez@gmail.com.</p>
         </section>
     </main>
     <footer>
@@ -107,7 +99,8 @@
             <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
         </div>!-->
     </footer>
-    <script src="script.js"></script>
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         // Cerrar el menú lateral al hacer clic en un enlace
         document.querySelectorAll('.side-nav ul a').forEach(item => {
@@ -124,59 +117,21 @@
             }
         });
 
-        // Función para mostrar/ocultar el formulario de Google y cambiar el texto del botón
-        function toggleGoogleForm() {
-            var formContainer = document.getElementById('google-form-container');
-            var button = document.querySelector('.button-container button:first-child');
-            
-            if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-                formContainer.style.display = 'block';
-                scrollToElement(formContainer); // Llama a la función para desplazar la página
-                button.innerHTML = '<i class="fas fa-times"></i> Ocultar Inscripción';
-            } else {
-                formContainer.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-pencil-alt"></i> Inscribirse';
-            }
-        }
-
-        // Función para mostrar/ocultar el mapa y cambiar el texto del botón
-        function toggleMap() {
-            var mapContainer = document.getElementById('map-container');
-            var button = document.querySelector('.button-container button:last-child');
-            
-            if (mapContainer.style.display === 'none' || mapContainer.style.display === '') {
-                mapContainer.style.display = 'block';
-                scrollToElement(mapContainer); // Llama a la función para desplazar la página
-                button.innerHTML = '<i class="fas fa-times"></i> Ocultar Mapa';
-            } else {
-                mapContainer.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-map-marker-alt"></i> Cómo llegar';
-            }
-        }
-
         // Mostrar/ocultar menú lateral
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');
-            if (sideNav.classList.contains('show')) {
-                sideNav.classList.remove('show');
-            } else {
-                sideNav.classList.add('show');
-            }
+            sideNav.classList.toggle('show');
         });
 
         document.getElementById('menu-toggle-close').addEventListener('click', function() {
             var sideNav = document.getElementById('side-nav');
-            if (sideNav.classList.contains('show')) {
-                sideNav.classList.remove('show');
-            } else {
-                sideNav.classList.add('show');
-            }
+            sideNav.classList.toggle('show');
         });
 
         // Función para cambiar entre modos oscuro y claro
         const checkbox = document.getElementById('checkbox');
         const body = document.body;
-        // Aplicar el modo guardado en localStorage al cargar la página
+        
         window.onload = function() {
             const theme = localStorage.getItem('theme');
             if (theme) {
@@ -194,13 +149,58 @@
                 localStorage.setItem('theme', 'dark-mode');
             }
         });
-        
-        // Función para desplazar la página al inicio del elemento
-        function scrollToElement(element) {
-            window.scrollTo({
-                top: element.offsetTop - 100, // Ajuste fino de la posición de desplazamiento
-                behavior: 'smooth' // Desplazamiento suave
+
+        // Inicializar EmailJS
+        (function() {
+            emailjs.init("Tnnd3MqEPNponrPkr");
+        })();
+
+        // Manejar el envío del formulario
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_ip2tz8l', 'template_fcwl5rs', this)
+                .then(function() {
+                    alert('Mensaje enviado correctamente');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Hubo un error: ' + error);
+                });
+        });
+
+        // Filtrar y ordenar noticias
+        document.getElementById('search').addEventListener('input', filterNews);
+        document.getElementById('sort').addEventListener('change', sortNews);
+
+        function filterNews() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            const articles = Array.from(document.querySelectorAll('#news-articles article'));
+
+            articles.forEach(article => {
+                const title = article.querySelector('h3').innerText.toLowerCase();
+                const content = article.querySelector('p').innerText.toLowerCase();
+
+                if (title.includes(searchValue) || content.includes(searchValue)) {
+                    article.style.display = 'flex';
+                } else {
+                    article.style.display = 'none';
+                }
             });
+        }
+
+        function sortNews() {
+            const sortOrder = document.getElementById('sort').value;
+            const articlesContainer = document.getElementById('news-articles');
+            const articles = Array.from(articlesContainer.children);
+
+            articles.sort((a, b) => {
+                const dateA = new Date(a.getAttribute('data-date'));
+                const dateB = new Date(b.getAttribute('data-date'));
+
+                return sortOrder === 'latest' ? dateB - dateA : dateA - dateB;
+            });
+
+            articles.forEach(article => articlesContainer.appendChild(article));
         }
     </script>
 </body>

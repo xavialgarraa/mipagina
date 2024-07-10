@@ -49,12 +49,24 @@
         <section id="news">
             <div class="news-header">
                 <h2>Noticias</h2>
-                <input type="text" id="search" placeholder="Buscar noticias..." />
-                <select id="sort">
+                <!-- Icono de lupa para versión móvil -->
+                <div class="mobile-search-icon" onclick="toggleMobileSearch()">
+                    <img src="lupa.png" alt="Buscar">
+                </div>
+                <!-- Campo de búsqueda para escritorio -->
+                <input type="text" id="search" placeholder="Buscar noticias..." class="desktop-search">
+                <!-- Selector de orden para noticias -->
+                <select id="sort" class="desktop-sort">
                     <option value="latest">Más recientes</option>
                     <option value="oldest">Más antiguas</option>
                 </select>
             </div>
+            <!-- Campo de búsqueda para versión móvil (inicialmente oculto) -->
+            <div id="mobileSearch" class="mobile-search">
+                <input type="text" id="searchMobile" placeholder="Buscar noticias...">
+                <button onclick="hideMobileSearch()">Cerrar</button>
+            </div>
+           
             <div id="news-articles">
                 <article data-date="2024-06-15">
                     <div class="news-content">
@@ -140,24 +152,24 @@
                     <li><a href="#contact">Contacto</a></li>
                     <li><a href="#">Acerca de</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
                 </ul>
             </div>
             <div class="footer-social">
                 <h3>Redes Sociales</h3>
                 <ul class="social-links">
-                    <li><a href="https://x.com/algarrastreams" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
-                    <li><a href="https://www.facebook.com/xavi.algarraperez/?locale=es_LA" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://www.instagram.com/algarraxavi/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="https://www.tiktok.com/@algarrastreams" target="_blank"><i class="fab fa-youtube"></i> Tiktok</a></li>
+                    <li><a href="https://x.com/algarrastreams" target="_blank"><img src="x.png" alt="Twitter"></a></li>
+                    <li><a href="https://www.facebook.com/xavi.algarraperez/?locale=es_LA" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com/algarraxavi/" target="_blank"><img src="instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.tiktok.com/@algarrastreams" target="_blank"><img src="tiktok.png" alt="Tiktok"></a></li>
                 </ul>
-                
             </div>
         </div>
         <!--<div class="footer-bottom">
             <p>&copy; 2024 Xavi Algarra. Todos los derechos reservados.</p>
         </div>!-->
     </footer>
+    
     
     
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -289,6 +301,22 @@
 
             articles.forEach(article => articlesContainer.appendChild(article));
         }
+        // Función para mostrar el campo de búsqueda móvil
+    function toggleMobileSearch() {
+        var mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch.style.display === 'block') {
+            mobileSearch.style.display = 'none';
+        } else {
+            mobileSearch.style.display = 'block';
+        }
+    }
+
+    // Función para ocultar el campo de búsqueda móvil
+    function hideMobileSearch() {
+        var mobileSearch = document.getElementById('mobileSearch');
+        mobileSearch.style.display = 'none';
+    }
+
     </script>
 </body>
 </html>
