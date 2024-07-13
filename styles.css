@@ -651,12 +651,20 @@ textarea {
     border-radius: 5px;
 }
 
+/* CSS para el botón de enviar en el formulario de contacto */
+#contact-form button[type="submit"] {
+    width: 94%;
+}
+
 
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
     #contact {
         padding: 10px;
+    }
+    #contact-form button[type="submit"] {
+        width: 94%;
     }
     input[type="text"],
     input[type="email"],
